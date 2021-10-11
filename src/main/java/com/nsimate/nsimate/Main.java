@@ -10,9 +10,10 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MainView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1600, 900);
-        stage.setTitle("NSI Mate V1.0");
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LoginView.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 400, 200);
+        stage.setResizable(false);
+        stage.setTitle("NSI Mate Login");
         stage.setScene(scene);
         stage.show();
     }
