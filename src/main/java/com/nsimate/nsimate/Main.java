@@ -9,6 +9,7 @@ import java.io.IOException;
 
 public class Main extends Application {
 
+    // Starts program with login window
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LoginView.fxml"));

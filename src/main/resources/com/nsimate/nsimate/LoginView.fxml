@@ -47,6 +47,7 @@
                   <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancelButton" text="Cancel" BorderPane.alignment="CENTER" />
                </right>
             </BorderPane>
+            <Text fx:id="invalidLoginText" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="2" />
          </children>
       </GridPane>
    </children>
