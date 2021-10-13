@@ -1,19 +1,9 @@
 package com.nsimate.nsimate;
 
-import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TitledPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.Window;
-
-import java.io.IOException;
-import java.sql.Connection;
 
 public class LoginViewController {
     public TextField userNameField;
@@ -29,7 +19,7 @@ public class LoginViewController {
         username = userNameField.getText();
         password = passwordField.getText();
 
-        if(DatabaseConnect.databaseLogin(username, password) != null) {
+        if(DatabaseConnector.databaseLogin(username, password) != null) {
             try {
                 Stage stage = (Stage) loginButton.getScene().getWindow();
                 stage.close();

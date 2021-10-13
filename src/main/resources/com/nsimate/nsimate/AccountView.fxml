@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nsimate.nsimate.AccountViewController">
+   <children>
+      <Text layoutX="46.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" AnchorPane.leftAnchor="50.0" />
+      <Text layoutX="45.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name:" AnchorPane.leftAnchor="50.0" />
+      <Text layoutX="45.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name:" AnchorPane.leftAnchor="50.0" />
+      <TextField layoutX="113.0" layoutY="125.0" text="Jon_Doe_69" AnchorPane.leftAnchor="115.0" />
+      <TextField layoutX="113.0" layoutY="164.0" text="Jon" AnchorPane.leftAnchor="115.0" />
+      <TextField layoutX="115.0" layoutY="203.0" prefHeight="25.0" prefWidth="149.0" text="Doe" AnchorPane.leftAnchor="115.0" />
+      <Text layoutX="307.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reset password:" AnchorPane.rightAnchor="207.939453125" />
+      <TextField layoutX="403.0" layoutY="125.0" promptText="Current password" AnchorPane.rightAnchor="50.0" />
+      <TextField layoutX="403.0" layoutY="177.0" promptText="New password" AnchorPane.rightAnchor="50.0" />
+      <TextField layoutX="403.0" layoutY="203.0" promptText="Confirm password" AnchorPane.rightAnchor="50.0" />
+      <Text fill="RED" layoutX="401.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passwords do not match" />
+      <ChoiceBox layoutX="115.0" layoutY="243.0" prefWidth="150.0" AnchorPane.leftAnchor="115.0" />
+      <Text layoutX="49.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type:" />
+   </children>
+</AnchorPane>
