@@ -1,5 +1,6 @@
 package com.nsimate.nsimate;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,5 +18,13 @@ public class MainViewController {
         stage.setTitle("NSI Mate V1.0");
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void onSelectManageAccount(ActionEvent actionEvent) {
+        try {
+            AccountViewController.start(new Stage());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

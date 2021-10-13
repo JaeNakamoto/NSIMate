@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nsimate.nsimate.MainViewController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -27,7 +27,7 @@
           </Menu>
             <Menu mnemonicParsing="false" text="Account">
                <items>
-                  <MenuItem fx:id="menuItemManageAccount" mnemonicParsing="false" text="Manage account" />
+                  <MenuItem fx:id="menuItemManageAccount" mnemonicParsing="false" onAction="#onSelectManageAccount" text="Manage account" />
                   <MenuItem mnemonicParsing="false" text="Logout" />
                </items>
             </Menu>
