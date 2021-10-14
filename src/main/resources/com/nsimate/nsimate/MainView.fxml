@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nsimate.nsimate.MainViewController">
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
+      <MenuBar fx:id="mainMenuBar" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem fx:id="menuItemSettings" mnemonicParsing="false" text="Settings" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
@@ -28,7 +30,7 @@
             <Menu mnemonicParsing="false" text="Account">
                <items>
                   <MenuItem fx:id="menuItemManageAccount" mnemonicParsing="false" onAction="#onSelectManageAccount" text="Manage account" />
-                  <MenuItem mnemonicParsing="false" text="Logout" />
+                  <MenuItem fx:id="menuItemLogout" mnemonicParsing="false" onAction="#onSelectLogout" text="Logout" />
                </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Help">
@@ -46,19 +48,41 @@
                <center>
                   <Accordion BorderPane.alignment="CENTER">
                     <panes>
+                        <TitledPane animated="false" layoutX="10.0" layoutY="60.0" text="Operators">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField layoutX="14.0" layoutY="14.0" promptText="Search Operator" />
+                                    <Button layoutX="163.0" layoutY="14.0" mnemonicParsing="false" text="OK" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
                       <TitledPane animated="false" text="Batches">
                         <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField layoutX="14.0" layoutY="14.0" promptText="Search Batch" />
+                                    <Button layoutX="163.0" layoutY="14.0" mnemonicParsing="false" text="OK" />
+                                 </children></AnchorPane>
                         </content>
                       </TitledPane>
                       <TitledPane animated="false" text="Measurements">
                         <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField layoutX="14.0" layoutY="14.0" promptText="Search Measurement" />
+                                    <Button layoutX="163.0" layoutY="14.0" mnemonicParsing="false" text="OK" />
+                                 </children></AnchorPane>
                         </content>
                       </TitledPane>
                         <TitledPane animated="false" layoutX="10.0" layoutY="10.0" text="Antennas">
                            <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField layoutX="14.0" layoutY="14.0" promptText="Search Antenna" />
+                                    <Button layoutX="163.0" layoutY="14.0" mnemonicParsing="false" text="OK" />
+                                 </children></AnchorPane>
                            </content>
                         </TitledPane>
                     </panes>

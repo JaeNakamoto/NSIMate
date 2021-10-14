@@ -79,13 +79,13 @@
                   <Font size="10.0" />
                </font>
             </Text>
-            <Button mnemonicParsing="false" text="Cancel" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="13">
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancelButtonClick" text="Cancel" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="13">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Apply" GridPane.columnIndex="3" GridPane.rowIndex="13" />
-            <Button mnemonicParsing="false" text="OK" GridPane.rowIndex="13">
+            <Button fx:id="applyButton" mnemonicParsing="false" onAction="#onApplyButtonClick" text="Apply" GridPane.columnIndex="3" GridPane.rowIndex="13" />
+            <Button fx:id="okButton" mnemonicParsing="false" onAction="#onOkButtonClick" text="OK" GridPane.rowIndex="13">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
