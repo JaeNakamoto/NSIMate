@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -324,214 +325,388 @@
                                                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                                      <children>
                                                                         <BorderPane layoutX="311.0" layoutY="195.0" prefHeight="813.3333333333334" prefWidth="1138.6666666666667" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                                           <left>
-                                                                              <GridPane BorderPane.alignment="CENTER">
-                                                                                 <columnConstraints>
-                                                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
-                                                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
-                                                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
-                                                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
-                                                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
-                                                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
-                                                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
-                                                                                 </columnConstraints>
-                                                                                 <rowConstraints>
-                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                                 </rowConstraints>
-                                                                                 <children>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" GridPane.halignment="LEFT">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Workorder:" GridPane.halignment="LEFT" GridPane.rowIndex="1">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RF Path:" GridPane.halignment="LEFT" GridPane.rowIndex="3">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Data Directory:" GridPane.halignment="LEFT" GridPane.rowIndex="2">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <TextField promptText="Name" GridPane.columnIndex="1" />
-                                                                                    <TextField promptText="Workorder" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                                                    <TextField promptText="Data Directory" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                                                    <TextField promptText="RF Path" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="5" />
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Min Temperature:" GridPane.rowIndex="5">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Max Temperature:" GridPane.rowIndex="6">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <TextField promptText="Celsius" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                                                                    <TextField promptText="Celsius" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RX/TX:" GridPane.columnIndex="3">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AUT h:" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AUT v:" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="hv AUT:" GridPane.columnIndex="3" GridPane.rowIndex="3">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <ChoiceBox prefWidth="150.0" GridPane.columnIndex="4" />
-                                                                                    <TextField GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                                                                                    <TextField GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                                                                                    <TextField GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Max ffh:" GridPane.columnIndex="3" GridPane.rowIndex="4">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Max ffv:" GridPane.columnIndex="3" GridPane.rowIndex="5">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="hv Max ff" GridPane.columnIndex="3" GridPane.rowIndex="6">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Probe Spacing:" GridPane.columnIndex="3" GridPane.rowIndex="7">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="h Span:" GridPane.columnIndex="3" GridPane.rowIndex="8">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="v Span:" GridPane.columnIndex="3" GridPane.rowIndex="9">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="hv Span:" GridPane.columnIndex="3" GridPane.rowIndex="10">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="h Center:" GridPane.columnIndex="3" GridPane.rowIndex="11">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="v Center:" GridPane.columnIndex="3" GridPane.rowIndex="12">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="hv Center:" GridPane.columnIndex="3" GridPane.rowIndex="13">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="hpts:" GridPane.columnIndex="3" GridPane.rowIndex="14">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="vpts:" GridPane.columnIndex="3" GridPane.rowIndex="15">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="hvpts:" GridPane.columnIndex="5">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="h Delta:" GridPane.columnIndex="5" GridPane.rowIndex="1">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="v Delta:" GridPane.columnIndex="5" GridPane.rowIndex="2">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="hv Delta:" GridPane.columnIndex="5" GridPane.rowIndex="3">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Reference Type:" GridPane.columnIndex="5" GridPane.rowIndex="4">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Scan cv:" GridPane.columnIndex="5" GridPane.rowIndex="5">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Scan cp:" GridPane.columnIndex="5" GridPane.rowIndex="6">
-                                                                                       <GridPane.margin>
-                                                                                          <Insets left="10.0" />
-                                                                                       </GridPane.margin>
-                                                                                    </Text>
-                                                                                    <TextField GridPane.columnIndex="4" GridPane.rowIndex="4" />
-                                                                                    <TextField GridPane.columnIndex="4" GridPane.rowIndex="5" />
-                                                                                    <TextField GridPane.columnIndex="4" GridPane.rowIndex="6" />
-                                                                                    <TextField GridPane.columnIndex="4" GridPane.rowIndex="7" />
-                                                                                    <TextField GridPane.columnIndex="4" GridPane.rowIndex="8" />
-                                                                                    <TextField GridPane.columnIndex="4" GridPane.rowIndex="9" />
-                                                                                    <TextField GridPane.columnIndex="4" GridPane.rowIndex="10" />
-                                                                                    <TextField GridPane.columnIndex="4" GridPane.rowIndex="11" />
-                                                                                    <TextField GridPane.columnIndex="4" GridPane.rowIndex="12" />
-                                                                                    <TextField GridPane.columnIndex="4" GridPane.rowIndex="13" />
-                                                                                    <TextField GridPane.columnIndex="4" GridPane.rowIndex="14" />
-                                                                                    <TextField GridPane.columnIndex="4" GridPane.rowIndex="15" />
-                                                                                    <TextField GridPane.columnIndex="6" />
-                                                                                    <TextField GridPane.columnIndex="6" GridPane.rowIndex="1" />
-                                                                                    <TextField GridPane.columnIndex="6" GridPane.rowIndex="2" />
-                                                                                    <TextField GridPane.columnIndex="6" GridPane.rowIndex="3" />
-                                                                                    <TextField GridPane.columnIndex="6" GridPane.rowIndex="4" />
-                                                                                    <TextField GridPane.columnIndex="6" GridPane.rowIndex="5" />
-                                                                                    <TextField GridPane.columnIndex="6" GridPane.rowIndex="6" />
-                                                                                 </children>
-                                                                              </GridPane>
-                                                                           </left>
+                                                                           <center>
+                                                                              <ScrollPane vbarPolicy="NEVER" BorderPane.alignment="CENTER">
+                                                                                 <content>
+                                                                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                                                       <children>
+                                                                                          <GridPane layoutX="10.0" layoutY="10.0" prefHeight="793.0" prefWidth="1401.0">
+                                                                                             <columnConstraints>
+                                                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
+                                                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
+                                                                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="110.0" />
+                                                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="95.0" />
+                                                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
+                                                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="170.0" />
+                                                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
+                                                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="195.0" />
+                                                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
+                                                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="170.0" />
+                                                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
+                                                                                             </columnConstraints>
+                                                                                             <rowConstraints>
+                                                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                             </rowConstraints>
+                                                                                             <children>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" GridPane.halignment="LEFT">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Workorder:" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RF Path:" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Data Directory:" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <TextField promptText="Name" GridPane.columnIndex="1" />
+                                                                                                <TextField promptText="Workorder" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                                                                <TextField promptText="Data Directory" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                                                                <TextField promptText="RF Path" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="5" />
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Min Temperature:" GridPane.rowIndex="5">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Max Temperature:" GridPane.rowIndex="6">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <TextField promptText="Celsius" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                                                                <TextField promptText="Celsius" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RX/TX:" GridPane.columnIndex="3">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AUT h:" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AUT v:" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="hv AUT:" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <ChoiceBox prefWidth="150.0" GridPane.columnIndex="4" />
+                                                                                                <TextField GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                                                                                <TextField GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                                                                                <TextField GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Max ffh:" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Max ffv:" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="hv Max ff" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Probe Spacing:" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="h Span:" GridPane.columnIndex="3" GridPane.rowIndex="8">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="v Span:" GridPane.columnIndex="3" GridPane.rowIndex="9">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="hv Span:" GridPane.columnIndex="3" GridPane.rowIndex="10">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="h Center:" GridPane.columnIndex="3" GridPane.rowIndex="11">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="v Center:" GridPane.columnIndex="3" GridPane.rowIndex="12">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="hv Center:" GridPane.columnIndex="3" GridPane.rowIndex="13">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="hpts:" GridPane.columnIndex="3" GridPane.rowIndex="14">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="vpts:" GridPane.columnIndex="3" GridPane.rowIndex="15">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="hvpts:" GridPane.columnIndex="5">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="h Delta:" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="v Delta:" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="hv Delta:" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Reference Type:" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Scan cv:" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Scan cp:" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <TextField GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                                                                                                <TextField GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                                                                                                <TextField GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                                                                                                <TextField GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                                                                                                <TextField GridPane.columnIndex="4" GridPane.rowIndex="8" />
+                                                                                                <TextField GridPane.columnIndex="4" GridPane.rowIndex="9" />
+                                                                                                <TextField GridPane.columnIndex="4" GridPane.rowIndex="10" />
+                                                                                                <TextField GridPane.columnIndex="4" GridPane.rowIndex="11" />
+                                                                                                <TextField GridPane.columnIndex="4" GridPane.rowIndex="12" />
+                                                                                                <TextField GridPane.columnIndex="4" GridPane.rowIndex="13" />
+                                                                                                <TextField GridPane.columnIndex="4" GridPane.rowIndex="14" />
+                                                                                                <TextField GridPane.columnIndex="4" GridPane.rowIndex="15" />
+                                                                                                <TextField prefWidth="177.0" GridPane.columnIndex="6" />
+                                                                                                <TextField GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                                                                                                <TextField GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                                                                                                <TextField GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                                                                                                <TextField GridPane.columnIndex="6" GridPane.rowIndex="4" />
+                                                                                                <TextField GridPane.columnIndex="6" GridPane.rowIndex="5" />
+                                                                                                <TextField GridPane.columnIndex="6" GridPane.rowIndex="6" />
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Scan bidir:" GridPane.columnIndex="5" GridPane.rowIndex="7">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Scan Axis Has Linked Motion:" GridPane.columnIndex="5" GridPane.rowIndex="8">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="h Scan:" GridPane.columnIndex="5" GridPane.rowIndex="9">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Scan Speed Adjustment:" GridPane.columnIndex="5" GridPane.rowIndex="10">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Beamset Smear:" GridPane.columnIndex="5" GridPane.rowIndex="11">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Probe Model:" GridPane.columnIndex="5" GridPane.rowIndex="12">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Probe1 Sense:" GridPane.columnIndex="5" GridPane.rowIndex="13">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Probe2 Sense:" GridPane.columnIndex="5" GridPane.rowIndex="14">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Probe TAU Offset:" GridPane.columnIndex="5" GridPane.rowIndex="15">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <TextField GridPane.columnIndex="6" GridPane.rowIndex="7" />
+                                                                                                <TextField GridPane.columnIndex="6" GridPane.rowIndex="8" />
+                                                                                                <TextField GridPane.columnIndex="6" GridPane.rowIndex="9" />
+                                                                                                <TextField GridPane.columnIndex="6" GridPane.rowIndex="10" />
+                                                                                                <TextField GridPane.columnIndex="6" GridPane.rowIndex="11" />
+                                                                                                <TextField GridPane.columnIndex="6" GridPane.rowIndex="12" />
+                                                                                                <TextField GridPane.columnIndex="6" GridPane.rowIndex="13" />
+                                                                                                <TextField GridPane.columnIndex="6" GridPane.rowIndex="14" />
+                                                                                                <TextField GridPane.columnIndex="6" GridPane.rowIndex="15" />
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Scan is l3 Type:" GridPane.columnIndex="7">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Scan l3 Motion AxisName:" GridPane.columnIndex="7" GridPane.rowIndex="1">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Scan l3 Linked Axis Name:" GridPane.columnIndex="7" GridPane.rowIndex="2">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Probe cos naz:" GridPane.columnIndex="7" GridPane.rowIndex="3">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Probe cos nel:" GridPane.columnIndex="7" GridPane.rowIndex="4">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Probe Pattern File Name:" GridPane.columnIndex="7" GridPane.rowIndex="5">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ref Origin Options:" GridPane.columnIndex="7" GridPane.rowIndex="6">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ref Origin h:" GridPane.columnIndex="7" GridPane.rowIndex="7">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ref Origin v:" GridPane.columnIndex="7" GridPane.rowIndex="8">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ref AUT x:" GridPane.columnIndex="7" GridPane.rowIndex="9">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ref AUT: y:" GridPane.columnIndex="7" GridPane.rowIndex="10">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ref AUT z:" GridPane.columnIndex="7" GridPane.rowIndex="11">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ref Beam:" GridPane.columnIndex="7" GridPane.rowIndex="12">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Recover Scan:" GridPane.columnIndex="7" GridPane.rowIndex="13">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Controller Scan Cut Number Start:" GridPane.columnIndex="7" GridPane.rowIndex="14">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Controller Scan Cut Number End:" GridPane.columnIndex="7" GridPane.rowIndex="15">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <TextField prefWidth="177.0" GridPane.columnIndex="8" />
+                                                                                                <TextField prefWidth="177.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+                                                                                                <TextField prefWidth="177.0" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+                                                                                                <TextField prefWidth="177.0" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+                                                                                                <TextField prefWidth="177.0" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+                                                                                                <TextField prefWidth="177.0" GridPane.columnIndex="8" GridPane.rowIndex="5" />
+                                                                                                <TextField prefWidth="177.0" GridPane.columnIndex="8" GridPane.rowIndex="6" />
+                                                                                                <TextField prefWidth="177.0" GridPane.columnIndex="8" GridPane.rowIndex="7" />
+                                                                                                <TextField prefWidth="177.0" GridPane.columnIndex="8" GridPane.rowIndex="8" />
+                                                                                                <TextField prefWidth="177.0" GridPane.columnIndex="8" GridPane.rowIndex="9" />
+                                                                                                <TextField prefWidth="177.0" GridPane.columnIndex="8" GridPane.rowIndex="10" />
+                                                                                                <TextField prefWidth="177.0" GridPane.columnIndex="8" GridPane.rowIndex="11" />
+                                                                                                <TextField prefWidth="177.0" GridPane.columnIndex="8" GridPane.rowIndex="12" />
+                                                                                                <TextField prefWidth="177.0" GridPane.columnIndex="8" GridPane.rowIndex="13" />
+                                                                                                <TextField prefWidth="177.0" GridPane.columnIndex="8" GridPane.rowIndex="14" />
+                                                                                                <TextField prefWidth="177.0" GridPane.columnIndex="8" GridPane.rowIndex="15" />
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Record hv Stamp In File:" GridPane.columnIndex="9">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Record Time Stamp In File:" GridPane.columnIndex="9" GridPane.rowIndex="1">
+                                                                                                   <GridPane.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </GridPane.margin>
+                                                                                                </Text>
+                                                                                                <TextField GridPane.columnIndex="10" />
+                                                                                                <TextField GridPane.columnIndex="10" GridPane.rowIndex="1" />
+                                                                                             </children>
+                                                                                          </GridPane>
+                                                                                       </children>
+                                                                                    </AnchorPane>
+                                                                                 </content>
+                                                                              </ScrollPane>
+                                                                           </center>
                                                                         </BorderPane>
                                                                      </children>
                                                                   </AnchorPane>

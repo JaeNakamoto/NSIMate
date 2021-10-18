@@ -83,16 +83,15 @@
                         <Font size="10.0" />
                      </font>
                   </Text>
-                  <Button fx:id="okButton" mnemonicParsing="false" onAction="#onOkButtonClick" text="OK" GridPane.halignment="CENTER" GridPane.rowIndex="16" GridPane.valignment="TOP" />
-                  <Button fx:id="applyButton" mnemonicParsing="false" onAction="#onApplyButtonClick" text="Apply" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="16" GridPane.valignment="TOP" />
                </children>
             </GridPane>
          </left>
-         <right>
+         <center>
             <GridPane BorderPane.alignment="CENTER">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -113,10 +112,12 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancelButtonClick" text="Cancel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="15" GridPane.valignment="TOP" />
+                  <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancelButtonClick" text="Cancel" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="15" GridPane.valignment="TOP" />
+                  <Button fx:id="applyButton" mnemonicParsing="false" onAction="#onApplyButtonClick" text="Apply" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="15" GridPane.valignment="TOP" />
+                  <Button fx:id="okButton" mnemonicParsing="false" onAction="#onOkButtonClick" text="OK" GridPane.halignment="CENTER" GridPane.rowIndex="15" GridPane.valignment="TOP" />
                </children>
             </GridPane>
-         </right>
+         </center>
       </BorderPane>
    </children>
 </AnchorPane>
