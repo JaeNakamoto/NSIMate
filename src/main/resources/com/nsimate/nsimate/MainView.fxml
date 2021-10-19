@@ -52,9 +52,9 @@
       </MenuBar>
    </top>
    <center>
-      <SplitPane dividerPositions="0.1360601001669449" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <SplitPane dividerPositions="0.1360601001669449" BorderPane.alignment="CENTER">
         <items>
-            <BorderPane prefHeight="200.0" prefWidth="200.0">
+            <BorderPane>
                <center>
                   <Accordion BorderPane.alignment="CENTER">
                     <panes>
@@ -109,7 +109,7 @@
                   </Accordion>
                </center>
             </BorderPane>
-            <BorderPane prefHeight="200.0" prefWidth="200.0">
+            <BorderPane>
                <center>
                   <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
                     <tabs>
@@ -192,8 +192,8 @@
                                                                <left>
                                                                   <GridPane BorderPane.alignment="CENTER">
                                                                      <columnConstraints>
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="125.0" />
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="125.0" />
                                                                      </columnConstraints>
                                                                      <rowConstraints>
                                                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -214,79 +214,103 @@
                                                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                                      </rowConstraints>
                                                                      <children>
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Beam Number:" GridPane.halignment="LEFT">
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cooridnate System:" GridPane.halignment="LEFT">
                                                                            <GridPane.margin>
                                                                               <Insets left="10.0" />
                                                                            </GridPane.margin>
                                                                         </Text>
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Beam Dwell:" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Groundplate:" GridPane.halignment="LEFT" GridPane.rowIndex="1">
                                                                            <GridPane.margin>
                                                                               <Insets left="10.0" />
                                                                            </GridPane.margin>
                                                                         </Text>
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phi Axis:" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Separation Rods:" GridPane.halignment="LEFT" GridPane.rowIndex="3">
                                                                            <GridPane.margin>
                                                                               <Insets left="10.0" />
                                                                            </GridPane.margin>
                                                                         </Text>
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Beam Frequency:" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Absorber:" GridPane.halignment="LEFT" GridPane.rowIndex="2">
                                                                            <GridPane.margin>
                                                                               <Insets left="10.0" />
                                                                            </GridPane.margin>
                                                                         </Text>
-                                                                        <TextField promptText="Beam Number" GridPane.columnIndex="1" />
-                                                                        <TextField promptText="Beam Dwell" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                                        <TextField promptText="Beam Frequency" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                                        <TextField promptText="Phi Axis" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                                        <TextField promptText="Coordinate System" GridPane.columnIndex="1" />
+                                                                        <TextField promptText="Groundplate" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                                        <TextField promptText="Absorber" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                                        <TextField promptText="Separation Rods" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                                                         <Text strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="5" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AZ Axis:" GridPane.rowIndex="4">
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Probe:" GridPane.rowIndex="4">
                                                                            <GridPane.margin>
                                                                               <Insets left="10.0" />
                                                                            </GridPane.margin>
                                                                         </Text>
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pol Axis:" GridPane.rowIndex="5">
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="MRE:" GridPane.rowIndex="5">
                                                                            <GridPane.margin>
                                                                               <Insets left="10.0" />
                                                                            </GridPane.margin>
                                                                         </Text>
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="X Axis:" GridPane.rowIndex="6">
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mechanical Adapter:" GridPane.rowIndex="6">
                                                                            <GridPane.margin>
                                                                               <Insets left="10.0" />
                                                                            </GridPane.margin>
                                                                         </Text>
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Y Axis:" GridPane.rowIndex="7">
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Grounding Option:" GridPane.rowIndex="7">
                                                                            <GridPane.margin>
                                                                               <Insets left="10.0" />
                                                                            </GridPane.margin>
                                                                         </Text>
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Z Axis:" GridPane.rowIndex="8">
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Control Cable:" GridPane.rowIndex="8">
                                                                            <GridPane.margin>
                                                                               <Insets left="10.0" />
                                                                            </GridPane.margin>
                                                                         </Text>
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AUT Z:" GridPane.rowIndex="9">
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NF/FF:" GridPane.rowIndex="9">
                                                                            <GridPane.margin>
                                                                               <Insets left="10.0" />
                                                                            </GridPane.margin>
                                                                         </Text>
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AUT Switch:" GridPane.rowIndex="10">
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Breakoutbox:" GridPane.rowIndex="10">
                                                                            <GridPane.margin>
                                                                               <Insets left="10.0" />
                                                                            </GridPane.margin>
                                                                         </Text>
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RF Switch Driver:" GridPane.rowIndex="11">
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Special1:" GridPane.rowIndex="11">
                                                                            <GridPane.margin>
                                                                               <Insets left="10.0" />
                                                                            </GridPane.margin>
                                                                         </Text>
-                                                                        <TextField promptText="AZ Axis" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                                                        <TextField promptText="Pol Axis" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                                                        <TextField promptText="X Axis" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                                                                        <TextField promptText="Y Axis" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                                                                        <TextField promptText="Z Axis" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                                                                        <TextField promptText="AUT Z" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                                                                        <TextField promptText="AUT Switch" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-                                                                        <TextField promptText="RF Switch Driver" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                                                                        <TextField promptText="Probe" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                                        <TextField promptText="MRE" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                                        <TextField promptText="Mechanical Adapter" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                                                        <TextField promptText="Grounding Option" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                                                        <TextField promptText="Control Cable" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                                                        <TextField promptText="Breakoutbox" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                                                        <TextField promptText="Special1" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Special2:" GridPane.rowIndex="12">
+                                                                           <GridPane.margin>
+                                                                              <Insets left="10.0" />
+                                                                           </GridPane.margin>
+                                                                        </Text>
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Special3:" GridPane.rowIndex="13">
+                                                                           <GridPane.margin>
+                                                                              <Insets left="10.0" />
+                                                                           </GridPane.margin>
+                                                                        </Text>
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Special4:" GridPane.rowIndex="14">
+                                                                           <GridPane.margin>
+                                                                              <Insets left="10.0" />
+                                                                           </GridPane.margin>
+                                                                        </Text>
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Special5:" GridPane.rowIndex="15">
+                                                                           <GridPane.margin>
+                                                                              <Insets left="10.0" />
+                                                                           </GridPane.margin>
+                                                                        </Text>
+                                                                        <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                                                        <TextField promptText="Special2" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                                                                        <TextField promptText="Special3" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                                                                        <TextField promptText="Special4" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                                                                        <TextField promptText="Special5" GridPane.columnIndex="1" GridPane.rowIndex="15" />
                                                                      </children>
                                                                   </GridPane>
                                                                </left>
@@ -308,9 +332,9 @@
                                  <children>
                                     <BorderPane prefHeight="842.6666666666666" prefWidth="1274.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <center>
-                                          <SplitPane dividerPositions="0.151358024691358" prefHeight="843.0" prefWidth="214.0" BorderPane.alignment="CENTER">
+                                          <SplitPane dividerPositions="0.151358024691358" prefHeight="843.0" BorderPane.alignment="CENTER">
                                              <items>
-                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="84.0">
+                                                <AnchorPane>
                                                    <children>
                                                       <TextField layoutX="11.0" layoutY="13.0" promptText="Search Measurement" />
                                                       <Button layoutX="160.0" layoutY="13.0" mnemonicParsing="false" text="OK" />
@@ -326,7 +350,7 @@
                                                                      <children>
                                                                         <BorderPane layoutX="311.0" layoutY="195.0" prefHeight="813.3333333333334" prefWidth="1138.6666666666667" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                                            <center>
-                                                                              <ScrollPane vbarPolicy="NEVER" BorderPane.alignment="CENTER">
+                                                                              <ScrollPane BorderPane.alignment="CENTER">
                                                                                  <content>
                                                                                     <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                                                                        <children>
@@ -1077,6 +1101,51 @@
                                                                                           <Insets left="10.0" />
                                                                                        </GridPane.margin>
                                                                                     </Text>
+                                                                                 </children>
+                                                                              </GridPane>
+                                                                           </left>
+                                                                        </BorderPane>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </content>
+                                                            </Tab>
+                                                            <Tab text="OEWG">
+                                                               <content>
+                                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                     <children>
+                                                                        <BorderPane layoutY="-2.0" prefHeight="813.3333333333334" prefWidth="1138.6666666666667">
+                                                                           <left>
+                                                                              <GridPane BorderPane.alignment="CENTER">
+                                                                                 <columnConstraints>
+                                                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
+                                                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="400.0" />
+                                                                                 </columnConstraints>
+                                                                                 <rowConstraints>
+                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                 </rowConstraints>
+                                                                                 <children>
+                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="5" />
+                                                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description:">
+                                                                                       <GridPane.margin>
+                                                                                          <Insets left="10.0" />
+                                                                                       </GridPane.margin>
+                                                                                    </Text>
+                                                                                    <TextField GridPane.columnIndex="1" />
                                                                                  </children>
                                                                               </GridPane>
                                                                            </left>
