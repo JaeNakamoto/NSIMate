@@ -22,7 +22,11 @@ public class MainViewController {
 
     //// Menu Bar ////
     public void onSelectSettings() {
-
+        try {
+            SettingsViewController.start(new Stage());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void onSelectDelete() {

@@ -26,7 +26,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem fx:id="menuItemSettings" mnemonicParsing="false" text="Settings" />
+              <MenuItem fx:id="menuItemSettings" mnemonicParsing="false" onAction="#onSelectSettings" text="Settings" />
                   <MenuItem fx:id="menuItemSettings111" mnemonicParsing="false" text="Open Measurement" />
                   <MenuItem fx:id="menuItemSettings11" mnemonicParsing="false" text="New Measurement" />
                   <MenuItem fx:id="menuItemSettings1" mnemonicParsing="false" text="Save Measurement" />
