@@ -52,7 +52,11 @@ public class MainViewController {
     }
 
     public void onSelectAbout() {
-
+        try {
+            AboutViewController.start(new Stage());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
