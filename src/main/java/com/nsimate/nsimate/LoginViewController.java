@@ -38,7 +38,7 @@ public class LoginViewController {
             try {
                 Stage stage = (Stage) loginButton.getScene().getWindow();
                 stage.close();
-                MainViewController.start(new Stage());
+                MainViewOldController.start(new Stage());
             } catch(Exception e) {
                 e.printStackTrace();
             }
