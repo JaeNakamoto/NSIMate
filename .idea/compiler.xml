@@ -13,4 +13,9 @@
       <module name="NSI Mate" target="17" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="NSI Mate" options="--add-exports java.sql.rowset/com.sun.rowset=com.nsimate.nsimate" />
+    </option>
+  </component>
 </project>

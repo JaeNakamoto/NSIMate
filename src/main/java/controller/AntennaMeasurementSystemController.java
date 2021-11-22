@@ -1,4 +1,4 @@
-package com.nsimate.nsimate;
+package controller;
 
 public class AntennaMeasurementSystemController {
 }

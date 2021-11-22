@@ -1,5 +1,6 @@
-package com.nsimate.nsimate;
+package controller;
 
+import com.nsimate.nsimate.Main;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -7,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import util.DBUtil;
 
 import java.io.IOException;
 
