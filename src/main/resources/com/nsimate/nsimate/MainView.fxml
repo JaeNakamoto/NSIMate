@@ -47,11 +47,16 @@
               <MenuItem mnemonicParsing="false" text="Delete" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu mnemonicParsing="false" text="Account">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" onAction="#onClickAccountSettings" text="Account Settings" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#onClickAbout" text="About" />
+               </items>
+            </Menu>
         </menus>
       </MenuBar>
    </top>
@@ -386,7 +391,7 @@
                                                                      </rowConstraints>
                                                                      <children>
                                                                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Measurement type" GridPane.halignment="LEFT" GridPane.rowIndex="1" />
-                                                                        <ChoiceBox prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                                                                        <ChoiceBox prefWidth="150.0" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
                                                                         <CheckBox mnemonicParsing="false" text="Constant velocity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                                                         <CheckBox mnemonicParsing="false" text="Continuous Path" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                                                         <CheckBox mnemonicParsing="false" text="Bidirectional" GridPane.columnIndex="2" GridPane.rowIndex="1" />

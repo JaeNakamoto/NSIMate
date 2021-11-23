@@ -33,8 +33,8 @@ public class Antenna {
     }
 
     //antenna_id
-    public IntegerProperty getAntenna_id() {
-        return antenna_id;
+    public int getAntenna_id() {
+        return antenna_id.get();
     }
 
     public void setAntenna_id(int antenna_id) {
@@ -46,8 +46,8 @@ public class Antenna {
     }
 
     //vendorspecifications_id
-    public IntegerProperty getvendorspecifications_id() {
-        return vendorspecifications_id;
+    public int getvendorspecifications_id() {
+        return vendorspecifications_id.get();
     }
 
     public void setVendorspecifications_id(int vendorspecifications_id) {
@@ -59,8 +59,8 @@ public class Antenna {
     }
 
     //antenna_name
-    public StringProperty getAntenna_name() {
-        return antenna_name;
+    public String getAntenna_name() {
+        return antenna_name.get();
     }
 
     public void setAntenna_name(String antenna_name) {
@@ -72,8 +72,8 @@ public class Antenna {
     }
 
     //antenna_partnumber
-    public StringProperty getAntenna_partnumber() {
-        return antenna_partnumber;
+    public String getAntenna_partnumber() {
+        return antenna_partnumber.get();
     }
 
     public void setAntenna_partnumber(String antenna_partnumber) {
@@ -85,8 +85,8 @@ public class Antenna {
     }
 
     //antenna_serialnumber
-    public StringProperty getAntenna_serialnumber() {
-        return antenna_serialnumber;
+    public String getAntenna_serialnumber() {
+        return antenna_serialnumber.get();
     }
 
     public void setAntenna_serialnumber(String antenna_serialnumber) {
@@ -98,8 +98,8 @@ public class Antenna {
     }
 
     //antenna_modification
-    public StringProperty getAntenna_modification() {
-        return antenna_modification;
+    public String getAntenna_modification() {
+        return antenna_modification.get();
     }
 
     public void setAntenna_modification(String antenna_modification) {
@@ -111,8 +111,8 @@ public class Antenna {
     }
 
     //antenna_powersupply
-    public StringProperty getAntenna_powersupply() {
-        return antenna_powersupply;
+    public String getAntenna_powersupply() {
+        return antenna_powersupply.get();
     }
 
     public void setAntenna_powersupply(String antenna_powersupply) {
@@ -124,8 +124,8 @@ public class Antenna {
     }
 
     //antenna_rx_tx_switch
-    public StringProperty getAntenna_rx_tx_switch() {
-        return antenna_rx_tx_switch;
+    public String getAntenna_rx_tx_switch() {
+        return antenna_rx_tx_switch.get();
     }
 
     public void setAntenna_rx_tx_switch(String antenna_rx_tx_switch) {
@@ -137,8 +137,8 @@ public class Antenna {
     }
 
     //antenna_coordinatesystem
-    public StringProperty getAntenna_coordinatesystem() {
-        return antenna_coordinatesystem;
+    public String getAntenna_coordinatesystem() {
+        return antenna_coordinatesystem.get();
     }
 
     public void setAntenna_coordinatesystem(String antenna_coordinatesystem) {
@@ -150,8 +150,8 @@ public class Antenna {
     }
 
     //antenna_number_of_RFconnections
-    public StringProperty getAntenna_number_of_RFconnections() {
-        return antenna_number_of_RFconnections;
+    public String getAntenna_number_of_RFconnections() {
+        return antenna_number_of_RFconnections.get();
     }
 
     public void setAntenna_number_of_RFconnections(String antenna_number_of_RFconnections) {

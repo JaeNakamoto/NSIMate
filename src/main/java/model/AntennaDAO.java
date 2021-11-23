@@ -12,7 +12,7 @@ public class AntennaDAO {
     //*******************************
     //SELECT an Antenna
     //*******************************
-    public static Antenna searchAntenna (int antenna_id) throws SQLException, ClassNotFoundException {
+    public static Antenna searchAntenna(int antenna_id) throws SQLException, ClassNotFoundException {
         //Declare a SELECT statement
         String selectStmt = "SELECT * FROM antenna WHERE antenna_id=" +antenna_id;
 
@@ -34,8 +34,7 @@ public class AntennaDAO {
     }
 
     //Use ResultSet from DB as parameter and set Employee Object's attributes and return employee object.
-    private static Antenna getAntennaFromResultSet(ResultSet rs) throws SQLException
-    {
+    private static Antenna getAntennaFromResultSet(ResultSet rs) throws SQLException {
         Antenna antenna = null;
         if (rs.next()) {
             antenna = new Antenna();
@@ -71,7 +70,7 @@ public class AntennaDAO {
             //Return antenna object
             return antennaList;
         } catch (SQLException e) {
-            System.out.println("SQL select operation has been failed: " + e);
+            System.out.println("SQL SELECT operation has failed: " + e);
             //Return exception
             throw e;
         }

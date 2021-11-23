@@ -4,6 +4,7 @@ import com.nsimate.nsimate.LoginSession;
 import com.sun.rowset.CachedRowSetImpl;
 
 import java.sql.*;
+import java.util.prefs.Preferences;
 
 public class DBUtil {
     //Declare JDBC Driver
@@ -17,8 +18,6 @@ public class DBUtil {
     //Log into DB
     //*************************************
     public static Connection dbConnect(String username, String password) {
-        com.nsimate.nsimate.LoginSession.getInstance(username, password, "Admin");
-
         try {
             Class.forName(JDBC_DRIVER);
             conn = DriverManager.getConnection(url, username, password);
