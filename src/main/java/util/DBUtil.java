@@ -17,10 +17,10 @@ public class DBUtil {
     //*************************************
     //Log into DB
     //*************************************
-    public static Connection dbConnect(String username, String password) {
+    public static Connection dbConnect() {
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(url, username, password);
+            conn = DriverManager.getConnection(url, "root", "antennemeetruimte");
             System.out.println("Connected to database");
         } catch (Exception e) {
             e.printStackTrace();
@@ -54,7 +54,7 @@ public class DBUtil {
         CachedRowSetImpl crs = null;
         try {
             //Connect to DB (Establish MySQL Connection)
-            dbConnect(crs.getUsername(), crs.getPassword());
+            dbConnect();
             System.out.println("Select statement: " + queryStmt + "\n");
 
             //Create statement
@@ -95,7 +95,7 @@ public class DBUtil {
         Statement stmt = null;
         try {
             //Connect to DB (Establish MySQL Connection)
-            dbConnect(com.nsimate.nsimate.LoginSession.getUsername(), com.nsimate.nsimate.LoginSession.getPassword());
+            dbConnect();
             //Create Statement
             stmt = conn.createStatement();
             //Run executeUpdate operation with given sql statement

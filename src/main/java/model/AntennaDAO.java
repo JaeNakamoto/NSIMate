@@ -14,7 +14,7 @@ public class AntennaDAO {
     //*******************************
     public static Antenna searchAntenna(int antenna_id) throws SQLException, ClassNotFoundException {
         //Declare a SELECT statement
-        String selectStmt = "SELECT * FROM antenna WHERE antenna_id=" +antenna_id;
+        String selectStmt = "SELECT * FROM antenna WHERE antenna_id= " +antenna_id;
 
         //Execute SELECT statement
         try {
@@ -105,7 +105,7 @@ public class AntennaDAO {
     //*************************************
     public static void deleteAntennaWithId (String antenna_id) throws SQLException, ClassNotFoundException {
         //Declare a DELETE statement
-        String updateStmt = "DELETE FROM employee WHERE (employee_id = '" +antenna_id+ "')";
+        String updateStmt = "DELETE FROM antenna WHERE (employee_id = '" +antenna_id+ "')";
 
         //Execute UPDATE operation
         try {
@@ -136,13 +136,13 @@ public class AntennaDAO {
         //Declare an INSERT statement
         String updateStmt =
                 "INSERT INTO antenna " +
-                        "(antenna_id, vendorspecifications_id, antenna_name, antenna_partnumber," +
-                        "antenna_modification, antenna_powersupply, antenna_rx_tx_switch," +
+                        "(antenna_name, antenna_partnumber, antenna_serialnumber, " +
+                        "antenna_modification, antenna_powersupply, antenna_rx_tx_switch, " +
                         "antenna_coordinatesystem, antenna_number_of_RFconnections) " +
                         "VALUES " +
-                        "('" +antenna_name+ ",'" +antenna_partnumber+ ",'" +antenna_serialnumber+ ",'"
-                        +antenna_modification+ ",'" +antenna_powersupply+ ",'" +antenna_rx_tx_switch+ ",'"
-                        +antenna_coordinatesystem+ ",'" +antenna_number_of_RFconnections+ "')";
+                        "('" +antenna_name+ "','" +antenna_partnumber+ "','" +antenna_serialnumber+ "','"
+                        +antenna_modification+ "','" +antenna_powersupply+ "','" +antenna_rx_tx_switch+ "','"
+                        +antenna_coordinatesystem+ "','" +antenna_number_of_RFconnections+ "');";
 
         //Execute INSERT operation
         try {

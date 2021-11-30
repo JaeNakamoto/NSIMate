@@ -36,7 +36,7 @@ public class LoginViewController {
         username = userNameField.getText();
         password = passwordField.getText();
 
-        if(DBUtil.dbConnect(username, password) != null) {
+        if(DBUtil.dbConnect() != null) {
             try {
                 Stage stage = (Stage) loginButton.getScene().getWindow();
                 stage.close();

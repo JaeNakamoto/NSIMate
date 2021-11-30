@@ -34,6 +34,7 @@
                   <MenuItem mnemonicParsing="false" text="New Scan" />
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem mnemonicParsing="false" text="Save Batch" />
+                  <MenuItem mnemonicParsing="false" onAction="#onClickSaveScan" text="Save Scan" />
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem fx:id="openScanMenuItem" mnemonicParsing="false" text="Open Scan..." />
                   <SeparatorMenuItem mnemonicParsing="false" />
@@ -286,8 +287,6 @@
                                                                      </rowConstraints>
                                                                      <children>
                                                                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Measurement title" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Antenna name" GridPane.rowIndex="1" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Antenna serialnr." GridPane.rowIndex="2" />
                                                                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Feed serialnr." GridPane.rowIndex="3" />
                                                                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ref" GridPane.rowIndex="4" />
                                                                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AUT" GridPane.rowIndex="5" />
@@ -299,9 +298,7 @@
                                                                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Probe/AUT scan radius" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                                                                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Width (X)" GridPane.columnIndex="4" GridPane.halignment="CENTER" />
                                                                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Height (Y)" GridPane.columnIndex="5" GridPane.halignment="CENTER" />
-                                                                        <TextField prefWidth="260.0" GridPane.columnIndex="1" />
-                                                                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                                        <TextField fx:id="measTitleField" prefWidth="260.0" GridPane.columnIndex="1" />
                                                                         <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                                                         <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                                                         <ChoiceBox maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="5" />
@@ -434,6 +431,56 @@
                                                                </content>
                                                                <padding>
                                                                   <Insets bottom="10.0" right="10.0" />
+                                                               </padding>
+                                                            </TitledPane>
+                                                            <TitledPane animated="false" collapsible="false" layoutY="572.0" prefHeight="244.0" prefWidth="1024.0" text="Antenna">
+                                                               <content>
+                                                                  <GridPane prefHeight="250.0" prefWidth="1024.0">
+                                                                     <columnConstraints>
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                     </columnConstraints>
+                                                                     <rowConstraints>
+                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                     </rowConstraints>
+                                                                     <children>
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Antenna id" GridPane.rowIndex="1" />
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Antenna name" GridPane.rowIndex="2" />
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Antenna partnr." GridPane.rowIndex="3" />
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Antenna serialnr." GridPane.rowIndex="4" />
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Antenna modification" GridPane.rowIndex="5" />
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Antenna powersupply" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Antenna RX/TX switch" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                                        <TextField fx:id="antennaIDField" prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                                        <TextField fx:id="antennaNameField" prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                                        <TextField fx:id="antennaPartnrField" prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                                        <TextField fx:id="antennaSerialnrField" prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                                        <TextField fx:id="antennaModField" prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                                        <TextField fx:id="antennaPSUField" prefWidth="260.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                                                        <TextField fx:id="antennaRXTXSwField" prefWidth="260.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Antenna coordinatesystem" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                                                        <TextField fx:id="antennaCoordSysField" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Antenna nr. of RFConnections" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                                                        <TextField fx:id="antennaNrOfRFConn" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                                                                     </children>
+                                                                     <padding>
+                                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                                     </padding>
+                                                                  </GridPane>
+                                                               </content>
+                                                               <padding>
+                                                                  <Insets bottom="10.0" left="10.0" right="10.0" />
                                                                </padding>
                                                             </TitledPane>
                                                          </children>
