@@ -10,25 +10,30 @@ import java.sql.SQLException;
 public class BatchDAO {
 
     //*******************************
-    //SELECT a Batch
+    //Search a Batch
     //*******************************
-    public static Batch searchBatch(int batch_id) throws SQLException, ClassNotFoundException {
+    public static Batch searchBatch(int keyword) throws SQLException, ClassNotFoundException {
         //Declare a SELECT statement
-        String selectStmt = "SELECT * FROM antenna WHERE antenna_id = " +batch_id;
+        String selectStmt = "SELECT * FROM batch WHERE" +
+                "batch_id LIKE %" +keyword+ "% " +
+                "OR batch_startdate LIKE %" +keyword+ "% " +
+                "OR batch_starttime LIKE %" +keyword+ "% " +
+                "OR batch_stopdate LIKE %" +keyword+ "% " +
+                "OR batch_stoptime LIKE %" +keyword+ "%;";
 
         //Execute SELECT statement
         try {
             //Get ResultSet from dbExecuteQuery method
-            ResultSet rsAntenna = DBUtil.dbExecuteQuery(selectStmt);
+            ResultSet rsBatch = DBUtil.dbExecuteQuery(selectStmt);
 
-            //Send ResultSet to the getEmployeeFromResultSet method and get antenna object
-            Batch batch = getBatchFromResultSet(rsAntenna);
+            //Send ResultSet to the getEmployeeFromResultSet method and get batch object
+            Batch batch = getBatchFromResultSet(rsBatch);
 
-            //Return antenna object
+            //Return batch object
             return batch;
 
         } catch (SQLException e) {
-            System.out.println("While searching an Antenna with " +batch_id+ " id, an error occurred: " + e);
+            System.out.println("While searching an Batch with " +keyword+ ", an error occurred: " + e);
             //Return exception
             throw e;
         }
@@ -59,10 +64,10 @@ public class BatchDAO {
             //Get ResultSet from dbExecuteQuery method
             ResultSet rsBatches = DBUtil.dbExecuteQuery(selectStmt);
 
-            //Send ResultSet to the getBatchList method and get antenna object
+            //Send ResultSet to the getBatchList method and get batch object
             ObservableList<Batch> batchList = getBatchList(rsBatches);
 
-            //Return antenna object
+            //Return batch object
             return batchList;
         } catch (SQLException e) {
             System.out.println("SQL SELECT operation has failed: " + e);
@@ -71,7 +76,7 @@ public class BatchDAO {
         }
     }
 
-    //Select * from antenna operation
+    //Select * from batch operation
     private static ObservableList<Batch> getBatchList(ResultSet rs) throws SQLException, ClassNotFoundException {
         //Declare an observable List which consists of Batch objects
         ObservableList<Batch> batchList = FXCollections.observableArrayList();
@@ -118,12 +123,12 @@ public class BatchDAO {
     ) throws SQLException, ClassNotFoundException {
         //Declare an INSERT statement
         String updateStmt =
-                "INSERT INTO antenna " +
-                        "(batch_id, batch_startdate, , batch_starttime," +
+                "INSERT INTO batch " +
+                        "(batch_startdate, batch_starttime," +
                         "batch_stopdate, batch_stoptime) " +
                         "VALUES " +
-                        "('" +batch_id+ ",'" +batch_startdate+ ",'" +batch_starttime+ ",'"
-                        +batch_stopdate+ ",'" +batch_stoptime+ "')";
+                        "('" +batch_startdate+ "','" +batch_starttime+ "','"
+                        +batch_stopdate+ "','" +batch_stoptime+ "')";
 
         //Execute INSERT operation
         try {

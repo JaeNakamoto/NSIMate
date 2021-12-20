@@ -9,18 +9,11 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.prefs.Preferences;
-
-import com.nsimate.nsimate.LoginSession;
-
-import static com.nsimate.nsimate.LoginSession.getUsername;
 
 public class AccountViewController {
     public Button okButton;
     public Button applyButton;
     public Button cancelButton;
-    public static TextField usernameField;
-    String username = getUsername();
 
     public static void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AccountView.fxml"));

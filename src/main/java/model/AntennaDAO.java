@@ -21,7 +21,7 @@ public class AntennaDAO {
             //Get ResultSet from dbExecuteQuery method
             ResultSet rsAntenna = DBUtil.dbExecuteQuery(selectStmt);
 
-            //Send ResultSet to the getEmployeeFromResultSet method and get antenna object
+            //Send ResultSet to the getAntennaFromResultSet method and get antenna object
             Antenna antenna = getAntennaFromResultSet(rsAntenna);
 
             //Return antenna object
@@ -33,7 +33,7 @@ public class AntennaDAO {
         }
     }
 
-    //Use ResultSet from DB as parameter and set Employee Object's attributes and return employee object.
+    //Use ResultSet from DB as parameter and set Antenna Object's attributes and return antenna object.
     private static Antenna getAntennaFromResultSet(ResultSet rs) throws SQLException {
         Antenna antenna = null;
         if (rs.next()) {
@@ -96,7 +96,7 @@ public class AntennaDAO {
             //Add antenna to the ObservableList
             antennaList.add(antenna);
         }
-        //return empList (ObservableList of Antennas)
+        //return antennaList (ObservableList of Antennas)
         return antennaList;
     }
 

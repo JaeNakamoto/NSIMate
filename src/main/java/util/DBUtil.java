@@ -1,12 +1,10 @@
 package util;
 
-import com.nsimate.nsimate.LoginSession;
 import com.sun.rowset.CachedRowSetImpl;
-
 import java.sql.*;
-import java.util.prefs.Preferences;
 
 public class DBUtil {
+
     //Declare JDBC Driver
     private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     //Connection
@@ -15,7 +13,7 @@ public class DBUtil {
     private static String url = "jdbc:mysql://localhost/nsi";
 
     //*************************************
-    //Log into DB
+    //Connect to DB
     //*************************************
     public static Connection dbConnect() {
         try {
@@ -52,6 +50,7 @@ public class DBUtil {
         Statement stmt = null;
         ResultSet resultSet = null;
         CachedRowSetImpl crs = null;
+
         try {
             //Connect to DB (Establish MySQL Connection)
             dbConnect();
@@ -83,6 +82,7 @@ public class DBUtil {
             //Close connection
             dbDisconnect();
         }
+
         //Return CachedRowSet
         return crs;
     }
@@ -93,6 +93,7 @@ public class DBUtil {
     public static void dbExecuteUpdate(String sqlStmt) throws SQLException, ClassNotFoundException {
         //Declare statement as null
         Statement stmt = null;
+
         try {
             //Connect to DB (Establish MySQL Connection)
             dbConnect();
@@ -108,6 +109,7 @@ public class DBUtil {
                 //Close statement
                 stmt.close();
             }
+
             //Close connection
             dbDisconnect();
         }

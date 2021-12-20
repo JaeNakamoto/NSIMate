@@ -31,7 +31,7 @@ public class Batch {
         this.batch_id.set(batch_id);
     }
 
-    public IntegerProperty batchIDProperty() {
+    public IntegerProperty batch_idProperty() {
         return batch_id;
     }
 
