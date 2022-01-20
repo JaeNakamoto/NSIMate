@@ -4,20 +4,19 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.RadioMenuItem?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -25,818 +24,603 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainViewController">
-   <content>
-      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="900.0" prefWidth="1600.0">
-         <top>
-            <MenuBar BorderPane.alignment="CENTER">
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                  <items>
-                        <MenuItem mnemonicParsing="false" text="Manage Batches and Scans" />
-                        <MenuItem mnemonicParsing="false" text="New Batch" />
-                        <MenuItem mnemonicParsing="false" text="New Scan" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Save Batch" />
-                        <MenuItem mnemonicParsing="false" onAction="#onClickSaveScan" text="Save Scan" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem fx:id="openScanMenuItem" mnemonicParsing="false" text="Open Scan..." />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Close Window" />
-                        <MenuItem mnemonicParsing="false" text="Settings..." />
-                        <MenuItem mnemonicParsing="false" text="Quit" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                  <items>
-                        <RadioMenuItem mnemonicParsing="false" text="Delete Scan" />
-                  </items>
-                </Menu>
-                  <Menu mnemonicParsing="false" text="Probes">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Manage Probes" />
-                    </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Antennas">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Manage Antennas" />
-                     </items>
-                  </Menu>
-                <Menu mnemonicParsing="false" text="Account">
-                  <items>
-                    <MenuItem mnemonicParsing="false" onAction="#onClickAccountSettings" text="Account Settings" />
-                        <MenuItem mnemonicParsing="false" text="Log out" />
-                        <MenuItem mnemonicParsing="false" text="Switch Account" />
-                  </items>
-                </Menu>
-                  <Menu mnemonicParsing="false" text="Help">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#onClickAbout" text="About" />
-                     </items>
-                  </Menu>
-              </menus>
-            </MenuBar>
-         </top>
-         <center>
-            <SplitPane dividerPositions="0.15" BorderPane.alignment="CENTER">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Select Batch..." />
+                  <MenuItem mnemonicParsing="false" text="New Batch" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <Menu mnemonicParsing="false" text="Open Recent Batch" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Import Scan from File..." />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Save" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Quit" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
                <items>
-                  <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0">
-                     <top>
-                        <GridPane BorderPane.alignment="CENTER">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="175.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="182.0" minWidth="10.0" prefWidth="62.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <TextField fx:id="searchField" promptText="Search Batch..." />
-                              <Button fx:id="searchButton" mnemonicParsing="false" text="Search" GridPane.columnIndex="1" />
-                           </children>
-                           <BorderPane.margin>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </BorderPane.margin>
-                        </GridPane>
-                     </top>
-                     <center>
-                        <ScrollPane prefHeight="200.0" prefWidth="200.0" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER" />
-                     </center>
-                  </BorderPane>
-                  <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="1346.0">
-                     <center>
-                        <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
-                          <tabs>
-                              <Tab text="Batch">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <TabPane layoutX="132.0" layoutY="45.0" prefHeight="844.0" prefWidth="1355.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <tabs>
-                                                <Tab text="Batch info">
-                                                   <content>
-                                                      <ScrollPane hbarPolicy="NEVER">
-                                                         <content>
-                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="1355.0">
-                                                               <children>
-                                                                  <TitledPane animated="false" collapsible="false" layoutX="320.0" prefHeight="170.0" prefWidth="720.0" text="Duration">
-                                                                     <padding>
-                                                                        <Insets bottom="10.0" top="10.0" />
-                                                                     </padding>
-                                                                     <content>
-                                                                        <GridPane prefHeight="180.0" prefWidth="400.0">
-                                                                           <columnConstraints>
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                           </columnConstraints>
-                                                                           <rowConstraints>
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                           </rowConstraints>
-                                                                           <padding>
-                                                                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                                                           </padding>
-                                                                           <children>
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Start time" GridPane.rowIndex="1" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Start date" GridPane.rowIndex="2" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Stop time" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Stop date" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                                                                              <TextField fx:id="batchStarttimeField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                                              <TextField fx:id="batchStartdateField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                                              <TextField fx:id="batchStoptimeField" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                                                                              <TextField fx:id="batchStopdateField" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                                                                           </children>
-                                                                        </GridPane>
-                                                                     </content>
-                                                                  </TitledPane>
-                                                                  <TitledPane animated="false" collapsible="false" prefHeight="170.0" prefWidth="320.0" text="Batch">
-                                                                     <padding>
-                                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                                                     </padding>
-                                                                     <content>
-                                                                        <GridPane prefHeight="180.0" prefWidth="400.0">
-                                                                           <columnConstraints>
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                           </columnConstraints>
-                                                                           <rowConstraints>
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                           </rowConstraints>
-                                                                           <padding>
-                                                                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                                                           </padding>
-                                                                           <children>
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Batch ID" GridPane.rowIndex="1" />
-                                                                              <Text fx:id="batchIDText" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;id&gt;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                                           </children>
-                                                                        </GridPane>
-                                                                     </content>
-                                                                  </TitledPane>
-                                                                  <TitledPane animated="false" collapsible="false" layoutY="170.0" prefHeight="290.0" prefWidth="1040.0" text="Hardware">
-                                                                     <content>
-                                                                        <GridPane prefHeight="250.0" prefWidth="400.0">
-                                                                           <columnConstraints>
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                           </columnConstraints>
-                                                                           <rowConstraints>
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                           </rowConstraints>
-                                                                           <children>
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Coordinate sytem" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Groundplate" GridPane.rowIndex="1" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Absorber" GridPane.rowIndex="2" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Separation rods" GridPane.rowIndex="3" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Probe" GridPane.rowIndex="4" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="MRE" GridPane.rowIndex="5" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mechanical adapter" GridPane.rowIndex="6" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Grounding option" GridPane.rowIndex="7" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Control cable" GridPane.rowIndex="8" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NF/FF" GridPane.columnIndex="3" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Breakoutbox" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Special" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                                                                              <TextField fx:id="hardwareCoordinatesystemField" prefWidth="260.0" GridPane.columnIndex="1" />
-                                                                              <TextField fx:id="hardwareGroundplateField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                                              <TextField fx:id="hardwareAbsorberField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                                              <TextField fx:id="hardwareSeparationrodsField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                                              <TextField fx:id="hardwareProbeField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                                                              <TextField fx:id="hardwareMREField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                                                              <TextField fx:id="hardwareMechanicaladapterField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                                                                              <TextField fx:id="hardwareGroundingoptionField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                                                                              <TextField fx:id="hardwareControlcableField" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                                                                              <ChoiceBox fx:id="hardwareNFFFBox" maxWidth="1.7976931348623157E308" GridPane.columnIndex="4" />
-                                                                              <TextField fx:id="hardwareBreakoutboxField" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                                                                              <TextField fx:id="hardwareSpecial1Field" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                                                                           </children>
-                                                                           <padding>
-                                                                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                                                           </padding>
-                                                                        </GridPane>
-                                                                     </content>
-                                                                     <padding>
-                                                                        <Insets bottom="10.0" left="10.0" />
-                                                                     </padding>
-                                                                  </TitledPane>
-                                                                  <TitledPane animated="false" collapsible="false" layoutY="460.0" prefHeight="244.0" prefWidth="1040.0" text="Antenna">
-                                                                     <content>
-                                                                        <GridPane prefHeight="250.0" prefWidth="1024.0">
-                                                                           <columnConstraints>
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                           </columnConstraints>
-                                                                           <rowConstraints>
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                           </rowConstraints>
-                                                                           <children>
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Antenna id" GridPane.rowIndex="1" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Antenna name" GridPane.rowIndex="2" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Antenna modification" GridPane.rowIndex="3" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Antenna powersupply" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Antenna RX/TX" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Antenna coordinatesystem" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Antenna nr. of RFConnections" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                                                                              <Text fx:id="antennaIDText" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;id&gt;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                                              <ChoiceBox maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                                              <TextField fx:id="antennaModField1" prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                                              <TextField fx:id="antennaPSUField1" prefWidth="260.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                                                                              <ChoiceBox fx:id="hardwareNFFFBox1" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                                                                              <ComboBox GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                                                                              <TextField fx:id="antennaNrOfRFConn1" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-                                                                           </children>
-                                                                           <padding>
-                                                                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                                                           </padding>
-                                                                        </GridPane>
-                                                                     </content>
-                                                                     <padding>
-                                                                        <Insets bottom="10.0" left="10.0" />
-                                                                     </padding>
-                                                                  </TitledPane>
-                                                                  <TitledPane animated="false" collapsible="false" layoutY="704.0" prefHeight="276.0" prefWidth="850.0" text="Reference location">
-                                                                     <content>
-                                                                        <GridPane prefHeight="250.0" prefWidth="400.0">
-                                                                           <columnConstraints>
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                           </columnConstraints>
-                                                                           <rowConstraints>
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                           </rowConstraints>
-                                                                           <children>
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Origin" GridPane.rowIndex="2" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="X (cm)" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Y (cm)" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Reference location" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                                                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                                                                 <GridPane.margin>
-                                                                                    <Insets />
-                                                                                 </GridPane.margin>
-                                                                              </TextField>
-                                                                              <TextField GridPane.columnIndex="2" GridPane.rowIndex="2">
-                                                                                 <GridPane.margin>
-                                                                                    <Insets />
-                                                                                 </GridPane.margin>
-                                                                              </TextField>
-                                                                              <ChoiceBox maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                                                                                 <GridPane.margin>
-                                                                                    <Insets />
-                                                                                 </GridPane.margin>
-                                                                              </ChoiceBox>
-                                                                           </children>
-                                                                           <padding>
-                                                                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                                                           </padding>
-                                                                        </GridPane>
-                                                                     </content>
-                                                                     <padding>
-                                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                                                     </padding>
-                                                                  </TitledPane>
-                                                                  <TitledPane animated="false" collapsible="false" layoutX="850.0" layoutY="704.0" prefHeight="276.0" prefWidth="191.0" text="Scan recovery">
-                                                                     <padding>
-                                                                        <Insets bottom="10.0" top="10.0" />
-                                                                     </padding>
-                                                                     <content>
-                                                                        <GridPane>
-                                                                           <columnConstraints>
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                           </columnConstraints>
-                                                                           <rowConstraints>
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                           </rowConstraints>
-                                                                           <children>
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Starting cut number" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last cut number" GridPane.rowIndex="5" />
-                                                                              <RadioButton mnemonicParsing="false" text="New scan" wrapText="true" GridPane.rowIndex="1">
-                                                                                 <toggleGroup>
-                                                                                    <ToggleGroup fx:id="scan_recovery_group1" />
-                                                                                 </toggleGroup>
-                                                                              </RadioButton>
-                                                                              <RadioButton mnemonicParsing="false" text="Recover scan" toggleGroup="$scan_recovery_group1" wrapText="true" GridPane.rowIndex="2" />
-                                                                              <TextField GridPane.rowIndex="4" />
-                                                                              <TextField GridPane.rowIndex="6" />
-                                                                           </children>
-                                                                           <padding>
-                                                                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                                                           </padding>
-                                                                        </GridPane>
-                                                                     </content>
-                                                                  </TitledPane>
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </content>
-                                                      </ScrollPane>
-                                                   </content>
-                                                </Tab>
-                                                <Tab text="Scan setup">
-                                                   <content>
-                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                                         <children>
-                                                            <TitledPane animated="false" collapsible="false" prefHeight="276.0" prefWidth="1024.0">
-                                                               <content>
-                                                                  <GridPane prefHeight="250.0" prefWidth="400.0">
-                                                                     <columnConstraints>
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                     </columnConstraints>
-                                                                     <rowConstraints>
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                     </rowConstraints>
-                                                                     <children>
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Scan title" GridPane.rowIndex="1" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ref" GridPane.rowIndex="3" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AUT" GridPane.rowIndex="4" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Theta" GridPane.rowIndex="5" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phi" GridPane.rowIndex="6" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Frequency" GridPane.rowIndex="7" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AUT dimensions" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Max far-field angle +/-" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Probe/AUT scan radius" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Width (X)" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Height (Y)" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                                                        <TextField fx:id="measTitleField" prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                                        <ChoiceBox maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                                                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                                                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                                                                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                                                                        <TextField GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                                                                        <TextField GridPane.columnIndex="5" GridPane.rowIndex="2" />
-                                                                        <TextField GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                                                                        <TextField GridPane.columnIndex="5" GridPane.rowIndex="3" />
-                                                                        <TextField GridPane.columnIndex="4" GridPane.rowIndex="4" />
-                                                                        <TextField GridPane.columnIndex="5" GridPane.rowIndex="4" />
-                                                                     </children>
-                                                                     <padding>
-                                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                                                     </padding>
-                                                                  </GridPane>
-                                                               </content>
-                                                               <padding>
-                                                                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                                               </padding>
-                                                            </TitledPane>
-                                                            <TitledPane animated="false" collapsible="false" layoutY="274.0" prefHeight="176.0" prefWidth="863.0" text="Sampling">
-                                                               <content>
-                                                                  <GridPane prefHeight="150.0" prefWidth="400.0">
-                                                                     <columnConstraints>
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                     </columnConstraints>
-                                                                     <rowConstraints>
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                     </rowConstraints>
-                                                                     <children>
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Span" GridPane.rowIndex="1">
-                                                                           <GridPane.margin>
-                                                                              <Insets right="10.0" />
-                                                                           </GridPane.margin>
-                                                                        </Text>
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Center" GridPane.rowIndex="2" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Points" GridPane.rowIndex="3" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Delta" GridPane.rowIndex="4" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="X (cm)" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Y (cm)" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                                                                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                                        <TextField GridPane.columnIndex="2" GridPane.rowIndex="1">
-                                                                           <GridPane.margin>
-                                                                              <Insets />
-                                                                           </GridPane.margin>
-                                                                        </TextField>
-                                                                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                                        <TextField GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                                                                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                                        <TextField GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                                                                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                                                        <TextField GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                                                                     </children>
-                                                                     <padding>
-                                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                                                     </padding>
-                                                                  </GridPane>
-                                                               </content>
-                                                               <padding>
-                                                                  <Insets bottom="10.0" left="10.0" right="10.0" />
-                                                               </padding>
-                                                            </TitledPane>
-                                                            <TitledPane animated="false" collapsible="false" layoutY="450.0" prefHeight="121.0" prefWidth="1024.0" text="Scanning options">
-                                                               <content>
-                                                                  <GridPane prefHeight="150.0" prefWidth="400.0">
-                                                                     <columnConstraints>
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                     </columnConstraints>
-                                                                     <rowConstraints>
-                                                                        <RowConstraints />
-                                                                        <RowConstraints />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                     </rowConstraints>
-                                                                     <children>
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Scan type" GridPane.halignment="LEFT" GridPane.rowIndex="1" />
-                                                                        <ChoiceBox prefWidth="150.0" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
-                                                                        <CheckBox mnemonicParsing="false" text="Constant velocity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                                        <CheckBox mnemonicParsing="false" text="Continuous Path" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                                        <CheckBox mnemonicParsing="false" text="Bidirectional" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                                                        <RadioButton mnemonicParsing="false" text="Y" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                                                                           <toggleGroup>
-                                                                              <ToggleGroup fx:id="scan_axis_group" />
-                                                                           </toggleGroup>
-                                                                        </RadioButton>
-                                                                        <RadioButton mnemonicParsing="false" text="X" toggleGroup="$scan_axis_group" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Scan Axis" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                                                     </children>
-                                                                     <padding>
-                                                                        <Insets bottom="10.0" left="10.0" top="10.0" />
-                                                                     </padding>
-                                                                  </GridPane>
-                                                               </content>
-                                                               <padding>
-                                                                  <Insets bottom="10.0" left="10.0" right="10.0" />
-                                                               </padding>
-                                                            </TitledPane>
-                                                            <TitledPane animated="false" collapsible="false" layoutX="863.0" layoutY="274.0" prefHeight="176.0" prefWidth="161.0" text="Reference Type">
-                                                               <content>
-                                                                  <GridPane prefHeight="150.0" prefWidth="343.0">
-                                                                     <columnConstraints>
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                     </columnConstraints>
-                                                                     <rowConstraints>
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                     </rowConstraints>
-                                                                     <padding>
-                                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                                                     </padding>
-                                                                     <children>
-                                                                        <ChoiceBox maxWidth="1.7976931348623157E308" />
-                                                                     </children>
-                                                                  </GridPane>
-                                                               </content>
-                                                               <padding>
-                                                                  <Insets bottom="10.0" right="10.0" />
-                                                               </padding>
-                                                            </TitledPane>
-                                                            <TitledPane animated="false" collapsible="false" layoutY="572.0" prefHeight="244.0" prefWidth="1024.0" text="Antenna">
-                                                               <content>
-                                                                  <GridPane prefHeight="250.0" prefWidth="1024.0">
-                                                                     <columnConstraints>
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                     </columnConstraints>
-                                                                     <rowConstraints>
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                     </rowConstraints>
-                                                                     <children>
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Antenna partnr." GridPane.rowIndex="1" />
-                                                                        <TextField fx:id="antennaPartnrField" prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                                     </children>
-                                                                     <padding>
-                                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                                                     </padding>
-                                                                  </GridPane>
-                                                               </content>
-                                                               <padding>
-                                                                  <Insets bottom="10.0" left="10.0" right="10.0" />
-                                                               </padding>
-                                                            </TitledPane>
-                                                         </children>
-                                                      </AnchorPane>
-                                                   </content>
-                                                </Tab>
-                                                <Tab text="Probe setup">
-                                                   <content>
-                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                                         <children>
-                                                            <TitledPane animated="false" collapsible="false" prefHeight="370.0" prefWidth="550.0" text="Probe definition">
-                                                               <content>
-                                                                  <GridPane prefHeight="250.0" prefWidth="400.0">
-                                                                     <columnConstraints>
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                     </columnConstraints>
-                                                                     <rowConstraints>
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                     </rowConstraints>
-                                                                     <children>
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Probe model" GridPane.rowIndex="1" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sense" GridPane.rowIndex="3" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tau offset (deg)" GridPane.rowIndex="5" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pol1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pol2" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                                                                        <ChoiceBox maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                                        <ChoiceBox maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                                        <ChoiceBox maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                                                                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                                                     </children>
-                                                                     <padding>
-                                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                                                     </padding>
-                                                                  </GridPane>
-                                                               </content>
-                                                               <padding>
-                                                                  <Insets left="10.0" top="10.0" />
-                                                               </padding>
-                                                            </TitledPane>
-                                                            <TitledPane animated="false" collapsible="false" layoutX="550.0" prefHeight="370.0" prefWidth="550.0" text="Probe properties">
-                                                               <padding>
-                                                                  <Insets left="10.0" top="10.0" />
-                                                               </padding>
-                                                               <content>
-                                                                  <GridPane prefHeight="250.0" prefWidth="400.0">
-                                                                     <columnConstraints>
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                     </columnConstraints>
-                                                                     <rowConstraints>
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                     </rowConstraints>
-                                                                     <children>
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Min. frequency" GridPane.rowIndex="2" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Max frequency" GridPane.rowIndex="3" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gaintable" GridPane.rowIndex="4" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;frequency&gt;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;frequency&gt;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;path to gaintable&gt;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Height (cm)" GridPane.rowIndex="7" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Width (cm)" GridPane.rowIndex="8" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Probe type" GridPane.rowIndex="10" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Serialnr." GridPane.rowIndex="1" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;serialnr&gt;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;height&gt;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;width&gt;" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;probe type&gt;" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-                                                                        <Button mnemonicParsing="false" text="Open" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                                                     </children>
-                                                                     <padding>
-                                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                                                     </padding>
-                                                                  </GridPane>
-                                                               </content>
-                                                            </TitledPane>
-                                                         </children>
-                                                      </AnchorPane>
-                                                   </content>
-                                                </Tab>
-                                            </tabs>
-                                          </TabPane>
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                              </Tab>
-                            <Tab text="Scan">
-                              <content>
-                                    <SplitPane dividerPositions="0.18" prefHeight="844.0" prefWidth="1355.0">
-                                       <items>
-                                          <BorderPane prefHeight="200.0" prefWidth="200.0">
-                                             <top>
-                                                <GridPane BorderPane.alignment="CENTER">
-                                                   <columnConstraints>
-                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="175.0" />
-                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="182.0" minWidth="10.0" prefWidth="62.0" />
-                                                   </columnConstraints>
-                                                   <rowConstraints>
-                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                   </rowConstraints>
-                                                   <children>
-                                                      <TextField promptText="Search Scan..." />
-                                                      <Button mnemonicParsing="false" text="Search" GridPane.columnIndex="1" />
-                                                   </children>
-                                                   <BorderPane.margin>
-                                                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                                   </BorderPane.margin>
-                                                </GridPane>
-                                             </top>
-                                             <center>
-                                                <ScrollPane prefHeight="200.0" prefWidth="200.0" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER" />
-                                             </center>
-                                          </BorderPane>
-                                          <BorderPane prefHeight="200.0" prefWidth="200.0">
-                                             <center>
-                                                <TabPane tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
-                                                   <tabs>
-                                                      <Tab text="Metadata">
-                                                         <content>
-                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                                               <children>
-                                                                  <TitledPane animated="false" collapsible="false" prefHeight="280.0" prefWidth="680.0">
-                                                                     <content>
-                                                                        <GridPane prefHeight="250.0" prefWidth="400.0">
-                                                                           <columnConstraints>
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                           </columnConstraints>
-                                                                           <rowConstraints>
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                           </rowConstraints>
-                                                                           <children>
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Start time" GridPane.rowIndex="3" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Start date" GridPane.rowIndex="4" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Min temp (C)" GridPane.rowIndex="6" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Max temp (C)" GridPane.rowIndex="7" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Stop time" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Stop date" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                                                                              <TextField prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                                              <TextField prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                                                              <TextField prefWidth="260.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                                                                              <TextField prefWidth="260.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-                                                                              <TextField prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                                                                              <TextField prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Feed serialnr." GridPane.rowIndex="1" />
-                                                                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Antenna serialnr." GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                                                              <TextField fx:id="antennaSerialnrField" prefWidth="260.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                                                                           </children>
-                                                                           <padding>
-                                                                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                                                           </padding>
-                                                                        </GridPane>
-                                                                     </content>
-                                                                     <padding>
-                                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                                                     </padding>
-                                                                  </TitledPane>
-                                                                  <TitledPane animated="false" collapsible="false" layoutY="268.0" prefHeight="280.0" prefWidth="680.0" text="Operator">
-                                                                     <content>
-                                                                        <GridPane prefHeight="250.0" prefWidth="400.0">
-                                                                           <columnConstraints>
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                           </columnConstraints>
-                                                                           <rowConstraints>
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                           </rowConstraints>
-                                                                           <children>
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Operator ID" GridPane.rowIndex="1" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" GridPane.rowIndex="3" />
-                                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" GridPane.rowIndex="4" />
-                                                                              <TextField prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                                              <TextField prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                                              <TextField prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                                                           </children>
-                                                                           <padding>
-                                                                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                                                           </padding>
-                                                                        </GridPane>
-                                                                     </content>
-                                                                     <padding>
-                                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                                                     </padding>
-                                                                  </TitledPane>
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </content>
-                                                      </Tab>
-                                                      <Tab text="Beamtable">
-                                                         <content>
-                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                                         </content>
-                                                      </Tab>
-                                                   </tabs>
-                                                </TabPane>
-                                             </center>
-                                          </BorderPane>
-                                       </items>
-                                    </SplitPane>
-                              </content>
-                            </Tab>
-                          </tabs>
-                        </TabPane>
-                     </center>
-                  </BorderPane>
+                  <MenuItem mnemonicParsing="false" text="Delete current Batch" />
+                  <MenuItem mnemonicParsing="false" text="Delete current Scan" />
                </items>
-            </SplitPane>
-         </center>
-      </BorderPane>
-   </content>
-</ScrollPane>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Probe">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Manage Probes..." />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Antenna">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Manage Antennas..." />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Operator">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Manage Operator..." />
+                  <MenuItem mnemonicParsing="false" text="Log Out" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About" />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+            <Tab text="Overview">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="scanSearchField" layoutX="14.0" layoutY="14.0" text="Search..." />
+                        <Button layoutX="313.0" layoutY="14.0" mnemonicParsing="false" text="OK" />
+                        <Button layoutX="362.0" layoutY="14.0" mnemonicParsing="false" text="Select Batch" />
+                        <Separator layoutY="55.0" prefWidth="1600.0" />
+                        <Text layoutX="15.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current batch:" />
+                        <Text fx:id="CurrentBatchIDText" layoutX="15.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;id&gt;" />
+                        <Button layoutX="1500.0" layoutY="69.0" mnemonicParsing="false" text="Refresh table" />
+                        <TreeTableView layoutY="75.0" prefHeight="725.0" prefWidth="1550.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                          <columns>
+                              <TreeTableColumn fx:id="scanIDColumn" prefWidth="75.0" text="Scan ID" />
+                            <TreeTableColumn fx:id="scanStartDateColumn" prefWidth="75.0" text="Start Date" />
+                            <TreeTableColumn fx:id="scanStopDateColumn" prefWidth="75.0" text="Stop Date" />
+                              <TreeTableColumn fx:id="scanFeedSerialnrColumn" prefWidth="214.0" text="Feed Serialnr." />
+                              <TreeTableColumn fx:id="scanMinTempColumn" prefWidth="96.0" text="Min Temp (C)" />
+                              <TreeTableColumn fx:id="scanMaxTempColumn" prefWidth="96.0" text="Max Temp (C)" />
+                              <TreeTableColumn fx:id="scanAntennaNameColumn" prefWidth="118.0" text="Antenna Name" />
+                              <TreeTableColumn fx:id="scanAntennaSerialnrColumn" prefWidth="118.0" text="Antenna Serialnr." />
+                          </columns>
+                        </TreeTableView>
+                        <ChoiceBox fx:id="searchScanChoiceBox" layoutX="163.0" layoutY="14.0" prefWidth="150.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+          <Tab text="Batch values">
+               <content>
+                  <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="Batch info">
+                           <content>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <TitledPane animated="false" collapsible="false" prefHeight="150.0" prefWidth="300.0" text="Batch">
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                       <content>
+                                          <GridPane prefHeight="180.0" prefWidth="200.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Batch ID" GridPane.rowIndex="1" />
+                                                <Text fx:id="batchIDText" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;id&gt;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Title" GridPane.rowIndex="2" />
+                                                <TextField fx:id="batchTitleField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                             </children>
+                                          </GridPane>
+                                       </content>
+                                    </TitledPane>
+                                    <TitledPane animated="false" collapsible="false" layoutX="300.0" prefHeight="150.0" prefWidth="500.0" text="Duration">
+                                       <padding>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </padding>
+                                       <content>
+                                          <GridPane prefHeight="180.0" prefWidth="400.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Start date" GridPane.rowIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Stop date" GridPane.rowIndex="2" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Start time" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Stop time" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                <TextField fx:id="batchStartdateField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <TextField fx:id="batchStopdateField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <TextField fx:id="batchStarttimeField" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                                <TextField fx:id="batchStoptimeField" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                             </children>
+                                          </GridPane>
+                                       </content>
+                                    </TitledPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                      <Tab text="Scan setup">
+                           <content>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <TitledPane animated="false" collapsible="false" prefHeight="250.0" prefWidth="500.0">
+                                       <content>
+                                          <GridPane prefHeight="250.0" prefWidth="400.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AUT Dimensions" GridPane.rowIndex="2" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Max FF angle +/-" GridPane.rowIndex="3" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="MRE" GridPane.rowIndex="4" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Probe Distance" GridPane.rowIndex="5" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Width (X)" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Height (Y)" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                                <TextField fx:id="autDimensionsXField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                <TextField fx:id="autDimensionsYField" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                <TextField fx:id="maxFFXField" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                                <TextField fx:id="maxFFYField" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                                <TextField fx:id="mreField" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                                <TextField GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </content>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </TitledPane>
+                                    <TitledPane animated="false" collapsible="false" layoutX="500.0" prefHeight="250.0" prefWidth="500.0" text="Sampling">
+                                       <content>
+                                          <GridPane prefHeight="150.0" prefWidth="400.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Span" GridPane.rowIndex="2">
+                                                   <GridPane.margin>
+                                                      <Insets right="10.0" />
+                                                   </GridPane.margin>
+                                                </Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Center" GridPane.rowIndex="3" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Points" GridPane.rowIndex="4" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Delta" GridPane.rowIndex="5" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Theta" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phi" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                                <TextField fx:id="spanThetaField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <TextField fx:id="spanPhiField" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                                   <GridPane.margin>
+                                                      <Insets />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <TextField fx:id="centerThetaField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <TextField GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                                <TextField fx:id="nrOfPointsThetaField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                <TextField fx:id="nrOfPointsPhiField" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                                <TextField fx:id="deltaThetaField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                <TextField fx:id="deltaPhiField" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </content>
+                                       <padding>
+                                          <Insets bottom="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </TitledPane>
+                                    <TitledPane animated="false" collapsible="false" layoutX="1000.0" prefHeight="250.0" prefWidth="161.0" text="Reference Type">
+                                       <content>
+                                          <GridPane prefHeight="150.0" prefWidth="343.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                             <children>
+                                                <ChoiceBox fx:id="referenceTypeChoiceBox" maxWidth="1.7976931348623157E308" />
+                                             </children>
+                                          </GridPane>
+                                       </content>
+                                       <padding>
+                                          <Insets bottom="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </TitledPane>
+                                    <TitledPane animated="false" collapsible="false" layoutY="250.0" prefHeight="150.0" prefWidth="1000.0" text="Scanning options">
+                                       <content>
+                                          <GridPane prefHeight="150.0" prefWidth="400.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                                                <RowConstraints />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Measurement type" GridPane.halignment="LEFT" GridPane.rowIndex="2" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Scan Axis" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                <TextField fx:id="measurementTypeField" GridPane.rowIndex="4">
+                                                   <GridPane.margin>
+                                                      <Insets right="10.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <CheckBox fx:id="constantVelocityCheckBox" mnemonicParsing="false" text="Constant velocity" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <CheckBox fx:id="continuousPathCheckBox" mnemonicParsing="false" text="Continuous Path" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                <CheckBox fx:id="bidirectionalCheckBox" mnemonicParsing="false" text="Bidirectional" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                <RadioButton fx:id="scanAxisPhiRadio" mnemonicParsing="false" text="Phi" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="scan_axis_group" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="scanAxisThetaRadio" mnemonicParsing="false" text="Theta" toggleGroup="$scan_axis_group" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" top="10.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </content>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" />
+                                       </padding>
+                                    </TitledPane>
+                                 </children></AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab text="Probe setup">
+                           <content>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <TitledPane animated="false" collapsible="false" prefHeight="370.0" prefWidth="550.0" text="Probe definition">
+                                       <content>
+                                          <GridPane prefHeight="250.0" prefWidth="400.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Probe model" GridPane.rowIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sense" GridPane.rowIndex="3" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tau offset (deg)" GridPane.rowIndex="5" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pol1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pol2" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                <ChoiceBox fx:id="probeModelChoiceBox" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <ChoiceBox fx:id="sensePol1ChoiceBox" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <ChoiceBox fx:id="sensePol2ChoiceBox" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                                <TextField fx:id="tauOffsetField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </content>
+                                       <padding>
+                                          <Insets left="10.0" top="10.0" />
+                                       </padding>
+                                    </TitledPane>
+                                    <TitledPane animated="false" collapsible="false" layoutX="550.0" prefHeight="370.0" prefWidth="550.0" text="Probe properties">
+                                       <padding>
+                                          <Insets left="10.0" top="10.0" />
+                                       </padding>
+                                       <content>
+                                          <GridPane prefHeight="250.0" prefWidth="400.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Serialnr." GridPane.rowIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Min. frequency" GridPane.rowIndex="2" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Max frequency" GridPane.rowIndex="3" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gaintable" GridPane.rowIndex="4" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Height (cm)" GridPane.rowIndex="7" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Width (cm)" GridPane.rowIndex="8" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Probe type" GridPane.rowIndex="10" />
+                                                <Text fx:id="probeSerialnrText" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;serialnr&gt;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Text fx:id="probeMinFrequencyText" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;frequency&gt;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Text fx:id="probeMaxFrequencyText" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;frequency&gt;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <Text fx:id="probeGaintablePathText" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;path to gaintable&gt;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                <Text fx:id="probeHeightText" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;height&gt;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                                <Text fx:id="probeWidthText" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;width&gt;" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                                <Text fx:id="probeTypeText" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;probe type&gt;" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                                <Button mnemonicParsing="false" text="Open" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </content>
+                                    </TitledPane>
+                                 </children></AnchorPane>
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </content>
+            </Tab>
+          <Tab text="Scan Variables">
+               <content>
+                  <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                        <Tab text="Scan Metadata">
+                           <content>
+                              <AnchorPane>
+                                 <children>
+                                    <TitledPane animated="false" collapsible="false" prefHeight="300.0" prefWidth="680.0">
+                                       <content>
+                                          <GridPane prefHeight="250.0" prefWidth="400.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Start time" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Start date" GridPane.rowIndex="5" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Min temp (C)" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Max temp (C)" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Stop time" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Stop date" GridPane.rowIndex="6" />
+                                                <TextField fx:id="scanStarttimeField" prefWidth="260.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                                                <TextField fx:id="ScanStartDateField" prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                <TextField fx:id="scanStoptimeField" prefWidth="260.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                                                <TextField fx:id="ScanStopDateField" prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                                <TextField fx:id="scanMinTempField" prefWidth="260.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                                <TextField fx:id="scanMaxTempField" prefWidth="260.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Feed serialnr." GridPane.rowIndex="3" />
+                                                <TextField fx:id="feedSerialNrField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Scan ID" GridPane.rowIndex="1" />
+                                                <Text fx:id="scanIDText" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;id&gt;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </content>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </TitledPane>
+                                    <TitledPane animated="false" collapsible="false" layoutX="680.0" prefHeight="300.0" prefWidth="400.0" text="Operator">
+                                       <content>
+                                          <GridPane prefHeight="250.0" prefWidth="400.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Operator" GridPane.rowIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" GridPane.rowIndex="3" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" GridPane.rowIndex="4" />
+                                                <TextField fx:id="operatorFirstNameField" prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <TextField fx:id="operatorLastNameField" prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                <TextField fx:id="operatorField" prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </content>
+                                       <padding>
+                                          <Insets bottom="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </TitledPane>
+                                 </children>
+                              </AnchorPane>
+                           </content></Tab>
+                        <Tab text="Antenna">
+                           <content>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <TitledPane animated="false" collapsible="false" prefHeight="244.0" prefWidth="1040.0" text="Antenna">
+                                       <content>
+                                          <GridPane prefHeight="250.0" prefWidth="1024.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Antenna ID" GridPane.rowIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" GridPane.rowIndex="2" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Modification" GridPane.rowIndex="5" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Powersupply" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RX/TX" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Coordinatesystem" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nr. of RF Connections" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                                <Text fx:id="antennaNameText1" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;name&gt;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Text fx:id="antennaPowersupplyText" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;powersupply&gt;" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                                <Text fx:id="rrtxField" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;rx/tx&gt;" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                                <Text fx:id="coordinatesystemField" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;coordinatesystem&gt;" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                                                <Text fx:id="nrOfRFConnectionsField" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;number&gt;" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Partnr." GridPane.rowIndex="3" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Serialnr." GridPane.rowIndex="4" />
+                                                <Text fx:id="antennaPartnrText" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;nr&gt;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <TextField fx:id="antennaSerialnrField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                <TextField fx:id="antennaModificationField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vendorspecifications" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                                                <Text fx:id="vendorspecificationsField" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;vendorspecifications&gt;" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                                                <ChoiceBox fx:id="antennaIDChoiceBox" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </content>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" top="10.0" />
+                                       </padding>
+                                    </TitledPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                      <Tab text="Beamtable">
+                           <content>
+                              <AnchorPane>
+                                 <children>
+                                    <TreeTableView prefHeight="816.0" prefWidth="1600.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="45.0">
+                                       <columns>
+                                          <TreeTableColumn fx:id="beamColumn" prefWidth="75.0" text="Beam" />
+                                          <TreeTableColumn fx:id="frequencyColumn" prefWidth="75.0" text="Frequency" />
+                                          <TreeTableColumn fx:id="wavelengthColumn" prefWidth="84.0" text="Wavelength" />
+                                          <TreeTableColumn fx:id="phiAxisColumn" prefWidth="84.0" text="Phi Axis" />
+                                          <TreeTableColumn fx:id="azimuthColumn" prefWidth="84.0" text="Azimuth" />
+                                          <TreeTableColumn fx:id="polAxisColumn" prefWidth="84.0" text="Pol Axis" />
+                                       </columns>
+                                    </TreeTableView>
+                                    <Text layoutX="15.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beamtable ID:" />
+                                    <Text fx:id="beamtableIDText" layoutX="15.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;id&gt;" />
+                                 </children>
+                              </AnchorPane>
+                           </content></Tab>
+                    </tabs>
+                  </TabPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>

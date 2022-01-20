@@ -12,7 +12,7 @@ public class AntennaDAO {
     //*******************************
     //SELECT an Antenna
     //*******************************
-    public static Antenna searchAntenna(int antenna_id) throws SQLException, ClassNotFoundException {
+    public static Antenna searchAntennas(int antenna_id) throws SQLException, ClassNotFoundException {
         //Declare a SELECT statement
         String selectStmt = "SELECT * FROM antenna WHERE antenna_id= " +antenna_id;
 
@@ -39,15 +39,13 @@ public class AntennaDAO {
         if (rs.next()) {
             antenna = new Antenna();
             antenna.setAntenna_id(rs.getInt("antenna_id"));
-            antenna.setVendorspecifications_id(rs.getInt("vendorspecifications_id"));
             antenna.setAntenna_name(rs.getString("antenna_name"));
-            antenna.setAntenna_partnumber(rs.getString("antenna_partnumber"));
-            antenna.setAntenna_serialnumber(rs.getString("antenna_serialnumber"));
-            antenna.setAntenna_modification(rs.getString("antenna_modification"));
+            antenna.setAntenna_partnr(rs.getString("antenna_partnr"));
             antenna.setAntenna_powersupply(rs.getString("antenna_powersupply"));
             antenna.setAntenna_rx_tx_switch(rs.getString("antenna_rx_tx_switch"));
             antenna.setAntenna_coordinatesystem(rs.getString("antenna_coordinatesystem"));
-            antenna.setAntenna_number_of_RFconnections(rs.getString("antenna_number_of_RFconnections"));
+            antenna.setAntenna_nr_of_rf_connections(rs.getInt("antenna_nr_of_rf_connections"));
+            antenna.setVendorspecifications(rs.getString("vendorspecifications"));
         }
         return antenna;
     }
@@ -70,7 +68,7 @@ public class AntennaDAO {
             //Return antenna object
             return antennaList;
         } catch (SQLException e) {
-            System.out.println("SQL SELECT operation has failed: " + e);
+            System.out.println("SQL SELECT Antennas operation has failed: " + e);
             //Return exception
             throw e;
         }
@@ -78,21 +76,19 @@ public class AntennaDAO {
 
     //Select * from antenna operation
     private static ObservableList<Antenna> getAntennaList(ResultSet rs) throws SQLException, ClassNotFoundException {
-        //Declare a observable List which consists of Antenna objects
+        //Declare an observable List which consists of Antenna objects
         ObservableList<Antenna> antennaList = FXCollections.observableArrayList();
 
         while (rs.next()) {
             Antenna antenna = new Antenna();
             antenna.setAntenna_id(rs.getInt("antenna_id"));
-            antenna.setVendorspecifications_id(rs.getInt("vendorspecifications_id"));
             antenna.setAntenna_name(rs.getString("antenna_name"));
-            antenna.setAntenna_partnumber(rs.getString("antenna_partnumber"));
-            antenna.setAntenna_serialnumber(rs.getString("antenna_serialnumber"));
-            antenna.setAntenna_modification(rs.getString("antenna_modification"));
+            antenna.setAntenna_partnr(rs.getString("antenna_partnr"));
             antenna.setAntenna_powersupply(rs.getString("antenna_powersupply"));
             antenna.setAntenna_rx_tx_switch(rs.getString("antenna_rx_tx_switch"));
             antenna.setAntenna_coordinatesystem(rs.getString("antenna_coordinatesystem"));
-            antenna.setAntenna_number_of_RFconnections(rs.getString("antenna_number_of_RFconnections"));
+            antenna.setAntenna_nr_of_rf_connections(rs.getInt("antenna_nr_of_rf_connections"));
+            antenna.setVendorspecifications(rs.getString("vendorspecifications"));
             //Add antenna to the ObservableList
             antennaList.add(antenna);
         }
@@ -105,7 +101,7 @@ public class AntennaDAO {
     //*************************************
     public static void deleteAntennaWithId (String antenna_id) throws SQLException, ClassNotFoundException {
         //Declare a DELETE statement
-        String updateStmt = "DELETE FROM antenna WHERE (employee_id = '" +antenna_id+ "')";
+        String updateStmt = "DELETE FROM antenna WHERE (antenna_id = '" +antenna_id+ "')";
 
         //Execute UPDATE operation
         try {
@@ -121,35 +117,33 @@ public class AntennaDAO {
     //*************************************
     public static void insertAntenna (
 
-            int antenna_id,
-            int vendorspecifications_id,
             String antenna_name,
-            String antenna_partnumber,
-            String antenna_serialnumber,
-            String antenna_modification,
+            String antenna_partnr,
             String antenna_powersupply,
             String antenna_rx_tx_switch,
             String antenna_coordinatesystem,
-            String antenna_number_of_RFconnections
+            int antenna_nr_of_rf_connections,
+            String vendorspecifications
 
             ) throws SQLException, ClassNotFoundException {
         //Declare an INSERT statement
         String updateStmt =
                 "INSERT INTO antenna " +
-                        "(antenna_name, antenna_partnumber, antenna_serialnumber, " +
-                        "antenna_modification, antenna_powersupply, antenna_rx_tx_switch, " +
-                        "antenna_coordinatesystem, antenna_number_of_RFconnections) " +
+                        "(antenna_name, antenna_partnr, antenna_powersupply, " +
+                        "antenna_rx_tx_switch, antenna_coordinatesystem, antenna_nr_of_rf_connections, " +
+                        "vendorspecificatopns) " +
                         "VALUES " +
-                        "('" +antenna_name+ "','" +antenna_partnumber+ "','" +antenna_serialnumber+ "','"
-                        +antenna_modification+ "','" +antenna_powersupply+ "','" +antenna_rx_tx_switch+ "','"
-                        +antenna_coordinatesystem+ "','" +antenna_number_of_RFconnections+ "');";
+                        "('" +antenna_name+ "','" +antenna_partnr+ "','" +antenna_powersupply+ "','"
+                        +antenna_rx_tx_switch+ "','" +antenna_coordinatesystem+ "','"
+                        +antenna_nr_of_rf_connections+ "','" +vendorspecifications+ "');";
 
         //Execute INSERT operation
         try {
             DBUtil.dbExecuteUpdate(updateStmt);
         } catch (SQLException e) {
-            System.out.print("Error occurred while performing an INSERT Operation: " + e);
+            System.out.print("Error occurred while performing an INSERT Antenna Operation: " + e);
             throw e;
         }
     }
+
 }

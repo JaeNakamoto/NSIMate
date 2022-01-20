@@ -10,7 +10,7 @@ public class DBUtil {
     //Connection
     public static Connection conn = null;
     //Connection url
-    private static String url = "jdbc:mysql://localhost/nsi";
+    private static String url = "jdbc:mysql://localhost/nsi_mate";
 
     //*************************************
     //Connect to DB
