@@ -1,49 +1,83 @@
 package controller;
 
 import com.nsimate.nsimate.Main;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
-import model.Antenna;
+
+import model.Variable;
+import model.VariableDAO;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
+import static model.VariableDAO.searchVariables;
 
 public class MainViewController {
 
     @FXML
-    private TableColumn<Antenna, Integer> scanIDColumn;
+    private TableView variableTable;
     @FXML
-    private TableColumn<Antenna,Integer> batchIDColumn;
+    private TableColumn<Variable, Integer> scanIDColumn;
     @FXML
-    private TableColumn<Antenna, Integer> antennaIDColumn;
+    private TableColumn<Variable, Integer> batchIDColumn;
     @FXML
-    private TableColumn<Antenna, String> antennaSerialnrColumn;
+    private TableColumn<Variable, Integer> antennaIDColumn;
     @FXML
-    private TableColumn<Antenna, String> antennaModificationColumn;
+    private TableColumn<Variable, String> antennaSerialnrColumn;
     @FXML
-    private TableColumn<Antenna, String> feedSerialnrColumn;
+    private TableColumn<Variable, String> antennaModificationColumn;
     @FXML
-    private TableColumn<Antenna, String> scanStartdateColumn;
+    private TableColumn<Variable, String> feedSerialnrColumn;
     @FXML
-    private TableColumn<Antenna, String> scanStopdateColumn;
+    private TableColumn<Variable, String> scanStartdateColumn;
     @FXML
-    private TableColumn<Antenna, String> scanStarttimeColumn;
+    private TableColumn<Variable, String> scanStopdateColumn;
     @FXML
-    private TableColumn<Antenna, String> scanStoptimeColumn;
+    private TableColumn<Variable, String> scanStarttimeColumn;
     @FXML
-    private TableColumn<Antenna, String> minTempColumn;
+    private TableColumn<Variable, String> scanStoptimeColumn;
     @FXML
-    private TableColumn<Antenna, String> maxTempColumn;
+    private TableColumn<Variable, Float> minTempColumn;
     @FXML
-    private TableColumn<Antenna, String> operatorIDColumn;
+    private TableColumn<Variable, Float> maxTempColumn;
     @FXML
-    private TableColumn<Antenna, String> documentPathColumn;
+    private TableColumn<Variable, Integer> operatorIDColumn;
+    @FXML
+    private TableColumn<Variable, String> documentPathColumn;
+
+    //For MultiThreading
+    private Executor exec;
 
     @FXML
     private void initialize() {
-
+        exec = Executors.newCachedThreadPool((runnable) -> {
+            Thread t = new Thread (runnable);
+            t.setDaemon(true);
+            return t;
+        });
+        scanIDColumn.setCellValueFactory(cellData -> cellData.getValue().variable_idProperty().asObject());
+        batchIDColumn.setCellValueFactory(cellData -> cellData.getValue().batch_idProperty().asObject());
+        antennaIDColumn.setCellValueFactory(cellData -> cellData.getValue().antenna_idProperty().asObject());
+        antennaSerialnrColumn.setCellValueFactory(cellData -> cellData.getValue().antenna_serialnrProperty());
+        antennaModificationColumn.setCellValueFactory(cellData -> cellData.getValue().antenna_modificationProperty());
+        feedSerialnrColumn.setCellValueFactory(cellData -> cellData.getValue().feed_serialnrProperty());
+        scanStartdateColumn.setCellValueFactory(cellData -> cellData.getValue().scan_startdateProperty());
+        scanStopdateColumn.setCellValueFactory(cellData -> cellData.getValue().scan_stopdateProperty());
+        scanStarttimeColumn.setCellValueFactory(cellData -> cellData.getValue().scan_starttimeProperty());
+        scanStoptimeColumn.setCellValueFactory(cellData -> cellData.getValue().scan_stoptimeProperty());
+        minTempColumn.setCellValueFactory(cellData -> cellData.getValue().temperature_minProperty().asObject());
+        maxTempColumn.setCellValueFactory(cellData -> cellData.getValue().temperature_maxProperty().asObject());
+        operatorIDColumn.setCellValueFactory(cellData -> cellData.getValue().operator_idProperty().asObject());
+        documentPathColumn.setCellValueFactory(cellData -> cellData.getValue().excel_document_pathProperty());
     }
 
     public static void start(Stage stage) throws IOException {
@@ -54,4 +88,28 @@ public class MainViewController {
         stage.show();
     }
 
+    @FXML
+    private void refreshVariable(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        try {
+            //Get all Employees information
+            ObservableList<Variable> variableData = searchVariables();
+            //Populate Employees on TableView
+            populateVariables((Variable) variableData);
+        } catch (SQLException | ClassNotFoundException e){
+            System.out.println("Error occurred while getting employees information from DB.\n" + e);
+            throw e;
+        }
+    }
+
+    //Populate Employee
+    @FXML
+    private void populateVariables (Variable variable) throws ClassNotFoundException {
+
+        //Declare and ObservableList for table view
+        ObservableList<Variable> variableData = FXCollections.observableArrayList();
+        //Add employee to the ObservableList
+        variableData.add(variable);
+        //Set items to the employeeTable
+        variableTable.setItems(variableData);
+    }
 }

@@ -12,7 +12,7 @@ public class VariableDAO {
     //*******************************
     //SELECT Variable
     //*******************************
-    public static Antenna searchVariable(int variable_id) throws SQLException, ClassNotFoundException {
+    public static Variable searchVariable(int variable_id) throws SQLException, ClassNotFoundException {
         //Declare a SELECT statement
         String selectStmt = "SELECT * FROM variable WHERE variable_id= " + variable_id;
 
@@ -58,7 +58,7 @@ public class VariableDAO {
     //*******************************
     //SELECT Variables
     //*******************************
-    public static ObservableList<Variable> searchVariables () throws SQLException, ClassNotFoundException {
+    public static ObservableList<Variable> searchVariables() throws SQLException, ClassNotFoundException {
         //Declare a SELECT statement
         String selectStmt = "SELECT * FROM variable";
 

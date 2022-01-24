@@ -12,6 +12,8 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.ToggleGroup?>
@@ -85,25 +87,25 @@
                         <Separator layoutY="55.0" prefWidth="1600.0" />
                         <Text layoutX="15.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current batch:" />
                         <Text fx:id="CurrentBatchIDText" layoutX="15.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;id&gt;" />
-                        <Button layoutX="1500.0" layoutY="69.0" mnemonicParsing="false" text="Refresh table" />
-                        <TreeTableView layoutY="75.0" prefHeight="725.0" prefWidth="1550.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                        <Button layoutX="1500.0" layoutY="69.0" mnemonicParsing="false" onAction="#refreshVariable" text="Refresh table" />
+                        <TableView fx:id="variableTable" layoutY="75.0" prefHeight="725.0" prefWidth="1550.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
                           <columns>
-                              <TreeTableColumn fx:id="scanIDColumn" prefWidth="75.0" text="Scan ID" />
-                              <TreeTableColumn fx:id="batchIDColumn" prefWidth="75.0" text="Batch ID" />
-                              <TreeTableColumn fx:id="antennaIDColumn" prefWidth="75.0" text="Antenna ID" />
-                              <TreeTableColumn fx:id="antennaSerialnrColumn" prefWidth="119.33329772949219" text="Antenna Serialnr" />
-                              <TreeTableColumn fx:id="antennaModificationColumn" prefWidth="140.0" text="Antenna Modification" />
-                              <TreeTableColumn fx:id="feedSerialnrColumn" prefWidth="98.00003051757812" text="Feed Serialnr" />
-                              <TreeTableColumn fx:id="scanStartdateColumn" prefWidth="98.00003051757812" text="Startdate" />
-                              <TreeTableColumn fx:id="scanStopdateColumn" prefWidth="98.00003051757812" text="Stopdate" />
-                              <TreeTableColumn fx:id="scanStarttimeColumn" prefWidth="98.00003051757812" text="Starttime" />
-                              <TreeTableColumn fx:id="scanStoptimeColumn" prefWidth="98.00003051757812" text="Stoptime" />
-                              <TreeTableColumn fx:id="minTempColumn" prefWidth="98.00003051757812" text="Min Temp (C)" />
-                              <TreeTableColumn fx:id="maxTempColumn" prefWidth="98.00003051757812" text="Max Temp (C)" />
-                              <TreeTableColumn fx:id="operatorIDColumn" prefWidth="98.00003051757812" text="Operator ID" />
-                              <TreeTableColumn fx:id="documentPathColumn" prefWidth="98.00003051757812" text="Excel Document Path" />
+                              <TableColumn fx:id="scanIDColumn" prefWidth="75.0" text="Scan ID" />
+                              <TableColumn fx:id="batchIDColumn" prefWidth="75.0" text="Batch ID" />
+                              <TableColumn fx:id="antennaIDColumn" prefWidth="75.0" text="Antenna ID" />
+                              <TableColumn fx:id="antennaSerialnrColumn" prefWidth="119.33329772949219" text="Antenna Serialnr" />
+                              <TableColumn fx:id="antennaModificationColumn" prefWidth="140.0" text="Antenna Modification" />
+                              <TableColumn fx:id="feedSerialnrColumn" prefWidth="98.00003051757812" text="Feed Serialnr" />
+                              <TableColumn fx:id="scanStartdateColumn" prefWidth="98.00003051757812" text="Startdate" />
+                              <TableColumn fx:id="scanStopdateColumn" prefWidth="98.00003051757812" text="Stopdate" />
+                              <TableColumn fx:id="scanStarttimeColumn" prefWidth="98.00003051757812" text="Starttime" />
+                              <TableColumn fx:id="scanStoptimeColumn" prefWidth="98.00003051757812" text="Stoptime" />
+                              <TableColumn fx:id="minTempColumn" prefWidth="98.00003051757812" text="Min Temp (C)" />
+                              <TableColumn fx:id="maxTempColumn" prefWidth="98.00003051757812" text="Max Temp (C)" />
+                              <TableColumn fx:id="operatorIDColumn" prefWidth="98.00003051757812" text="Operator ID" />
+                              <TableColumn fx:id="documentPathColumn" prefWidth="98.00003051757812" text="Excel Document Path" />
                           </columns>
-                        </TreeTableView>
+                        </TableView>
                         <ChoiceBox fx:id="searchScanChoiceBox" layoutX="163.0" layoutY="14.0" prefWidth="150.0" />
                      </children>
                   </AnchorPane>
@@ -138,7 +140,7 @@
                                              </padding>
                                              <children>
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Batch ID" GridPane.rowIndex="1" />
-                                                <Text fx:id="batchIDText" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;id&gt;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;id&gt;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Title" GridPane.rowIndex="2" />
                                                 <TextField fx:id="batchTitleField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                              </children>
