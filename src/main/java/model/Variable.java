@@ -6,6 +6,7 @@ public class Variable {
     //Declare Variable Table Columns
     private IntegerProperty variable_id;
     private IntegerProperty batch_id;
+    private IntegerProperty antenna_id;
     private StringProperty antenna_serialnr;
     private StringProperty antenna_modification;
     private StringProperty feed_serialnr;
@@ -22,6 +23,7 @@ public class Variable {
     public Variable() {
         this.variable_id = new SimpleIntegerProperty();
         this.batch_id = new SimpleIntegerProperty();
+        this.antenna_id = new SimpleIntegerProperty();
         this.antenna_serialnr = new SimpleStringProperty();
         this.antenna_modification = new SimpleStringProperty();
         this.feed_serialnr = new SimpleStringProperty();
@@ -39,7 +41,7 @@ public class Variable {
     public int getVariable_id() {
         return variable_id.get();
     }
-    public void setvariable_id(int variable_id) {
+    public void setVariable_id(int variable_id) {
         this.variable_id.set(variable_id);
     }
     public IntegerProperty variable_idProperty() {
@@ -55,6 +57,17 @@ public class Variable {
     }
     public IntegerProperty batch_idProperty() {
         return batch_id;
+    }
+
+    //antenna_id
+    public int getAntenna_id() {
+        return antenna_id.get();
+    }
+    public void setAntenna_id(int antenna_id) {
+        this.antenna_id.set(antenna_id);
+    }
+    public IntegerProperty antenna_idProperty() {
+        return antenna_id;
     }
 
     //antenna_serialnr

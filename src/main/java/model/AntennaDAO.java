@@ -12,9 +12,9 @@ public class AntennaDAO {
     //*******************************
     //SELECT an Antenna
     //*******************************
-    public static Antenna searchAntennas(int antenna_id) throws SQLException, ClassNotFoundException {
+    public static Antenna searchAntenna(int antenna_id) throws SQLException, ClassNotFoundException {
         //Declare a SELECT statement
-        String selectStmt = "SELECT * FROM antenna WHERE antenna_id= " +antenna_id;
+        String selectStmt = "SELECT * FROM antenna WHERE antenna_id= " + antenna_id;
 
         //Execute SELECT statement
         try {
@@ -63,10 +63,10 @@ public class AntennaDAO {
             ResultSet rsAntennas = DBUtil.dbExecuteQuery(selectStmt);
 
             //Send ResultSet to the getAntennaList method and get antenna object
-            ObservableList<Antenna> antennaList = getAntennaList(rsAntennas);
+            ObservableList<Antenna> antennasList = getAntennaList(rsAntennas);
 
             //Return antenna object
-            return antennaList;
+            return antennasList;
         } catch (SQLException e) {
             System.out.println("SQL SELECT Antennas operation has failed: " + e);
             //Return exception
@@ -107,7 +107,7 @@ public class AntennaDAO {
         try {
             DBUtil.dbExecuteUpdate(updateStmt);
         } catch (SQLException e) {
-            System.out.print("Error occurred while performing DELETE Operation: " + e);
+            System.out.print("Error occurred while performing DELETE Antenna Operation: " + e);
             throw e;
         }
     }
