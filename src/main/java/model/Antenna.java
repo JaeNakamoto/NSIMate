@@ -14,7 +14,8 @@ public class Antenna {
     private StringProperty antenna_rx_tx_switch;
     private StringProperty antenna_coordinatesystem;
     private IntegerProperty antenna_nr_of_rf_connections;
-    private StringProperty vendorspecifications
+    private StringProperty vendorspecifications;
+
     //Constructor
     public Antenna() {
         this.antenna_id = new SimpleIntegerProperty();
@@ -67,8 +68,8 @@ public class Antenna {
     public void setAntenna_powersupply(String antenna_powersupply) {
         this.antenna_powersupply.set(antenna_powersupply);
     }
-    public StringProperty antenna_partnrProperty(){
-        return antenna_partnr;
+    public StringProperty antenna_powersupplyProperty(){
+        return antenna_powersupply;
     }
 
     //antenna_rx_tx_switch

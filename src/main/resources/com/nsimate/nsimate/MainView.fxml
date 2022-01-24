@@ -24,7 +24,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainViewController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -89,13 +89,19 @@
                         <TreeTableView layoutY="75.0" prefHeight="725.0" prefWidth="1550.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
                           <columns>
                               <TreeTableColumn fx:id="scanIDColumn" prefWidth="75.0" text="Scan ID" />
-                            <TreeTableColumn fx:id="scanStartDateColumn" prefWidth="75.0" text="Start Date" />
-                            <TreeTableColumn fx:id="scanStopDateColumn" prefWidth="75.0" text="Stop Date" />
-                              <TreeTableColumn fx:id="scanFeedSerialnrColumn" prefWidth="214.0" text="Feed Serialnr." />
-                              <TreeTableColumn fx:id="scanMinTempColumn" prefWidth="96.0" text="Min Temp (C)" />
-                              <TreeTableColumn fx:id="scanMaxTempColumn" prefWidth="96.0" text="Max Temp (C)" />
-                              <TreeTableColumn fx:id="scanAntennaNameColumn" prefWidth="118.0" text="Antenna Name" />
-                              <TreeTableColumn fx:id="scanAntennaSerialnrColumn" prefWidth="118.0" text="Antenna Serialnr." />
+                              <TreeTableColumn fx:id="batchIDColumn" prefWidth="75.0" text="Batch ID" />
+                              <TreeTableColumn fx:id="antennaIDColumn" prefWidth="75.0" text="Antenna ID" />
+                              <TreeTableColumn fx:id="antennaSerialnrColumn" prefWidth="119.33329772949219" text="Antenna Serialnr" />
+                              <TreeTableColumn fx:id="antennaModificationColumn" prefWidth="140.0" text="Antenna Modification" />
+                              <TreeTableColumn fx:id="feedSerialnrColumn" prefWidth="98.00003051757812" text="Feed Serialnr" />
+                              <TreeTableColumn fx:id="scanStartdateColumn" prefWidth="98.00003051757812" text="Startdate" />
+                              <TreeTableColumn fx:id="scanStopdateColumn" prefWidth="98.00003051757812" text="Stopdate" />
+                              <TreeTableColumn fx:id="scanStarttimeColumn" prefWidth="98.00003051757812" text="Starttime" />
+                              <TreeTableColumn fx:id="scanStoptimeColumn" prefWidth="98.00003051757812" text="Stoptime" />
+                              <TreeTableColumn fx:id="minTempColumn" prefWidth="98.00003051757812" text="Min Temp (C)" />
+                              <TreeTableColumn fx:id="maxTempColumn" prefWidth="98.00003051757812" text="Max Temp (C)" />
+                              <TreeTableColumn fx:id="operatorIDColumn" prefWidth="98.00003051757812" text="Operator ID" />
+                              <TreeTableColumn fx:id="documentPathColumn" prefWidth="98.00003051757812" text="Excel Document Path" />
                           </columns>
                         </TreeTableView>
                         <ChoiceBox fx:id="searchScanChoiceBox" layoutX="163.0" layoutY="14.0" prefWidth="150.0" />
