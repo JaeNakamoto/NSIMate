@@ -50,6 +50,7 @@ public class VariableDAO {
             variable.setScan_stoptime(rs.getString("scan_stoptime"));
             variable.setTemperature_min(rs.getFloat("temperature_min"));
             variable.setTemperature_max(rs.getFloat("temperature_max"));
+            variable.setOperator_id(rs.getInt("operator_id"));
             variable.setExcel_document_path(rs.getString("excel_document_path"));
         }
         return variable;
@@ -98,6 +99,7 @@ public class VariableDAO {
             variable.setScan_stoptime(rs.getString("scan_stoptime"));
             variable.setTemperature_min(rs.getFloat("temperature_min"));
             variable.setTemperature_max(rs.getFloat("temperature_max"));
+            variable.setOperator_id(rs.getInt("operator_id"));
             variable.setExcel_document_path(rs.getString("excel_document_path"));
             //Add variable to the ObservableList
             variableList.add(variable);
@@ -138,6 +140,7 @@ public class VariableDAO {
             String scan_stoptime,
             Float temperature_min,
             Float temperature_max,
+            int operator_id,
             String excel_document_path
 
     ) throws SQLException, ClassNotFoundException {
@@ -150,7 +153,8 @@ public class VariableDAO {
                         "VALUES " +
                         "('" +antenna_id+ "','" +antenna_serialnr+ "','" +antenna_modification+ "','"
                         +feed_serialnr+ "','" +scan_startdate+ "','" +scan_stopdate+ "','" +scan_starttime+ "','"
-                        +scan_stoptime+ "','" +temperature_min+ "','" +temperature_max+ "','" +excel_document_path+ "');";
+                        +scan_stoptime+ "','" +temperature_min+ "','" +temperature_max+ "','" +operator_id+ "','"
+                        +excel_document_path+ "');";
 
         //Execute INSERT operation
         try {

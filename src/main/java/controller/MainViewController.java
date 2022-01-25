@@ -19,8 +19,6 @@ import java.sql.SQLException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-import static model.VariableDAO.searchVariables;
-
 public class MainViewController {
 
     @FXML
@@ -64,6 +62,7 @@ public class MainViewController {
             t.setDaemon(true);
             return t;
         });
+
         scanIDColumn.setCellValueFactory(cellData -> cellData.getValue().variable_idProperty().asObject());
         batchIDColumn.setCellValueFactory(cellData -> cellData.getValue().batch_idProperty().asObject());
         antennaIDColumn.setCellValueFactory(cellData -> cellData.getValue().antenna_idProperty().asObject());
@@ -92,9 +91,9 @@ public class MainViewController {
     private void refreshVariable(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         try {
             //Get all Employees information
-            ObservableList<Variable> variableData = searchVariables();
+            ObservableList<Variable> variableData = VariableDAO.searchVariables();
             //Populate Employees on TableView
-            populateVariables((Variable) variableData);
+            populateVariables(variableData);
         } catch (SQLException | ClassNotFoundException e){
             System.out.println("Error occurred while getting employees information from DB.\n" + e);
             throw e;
@@ -103,13 +102,7 @@ public class MainViewController {
 
     //Populate Employee
     @FXML
-    private void populateVariables (Variable variable) throws ClassNotFoundException {
-
-        //Declare and ObservableList for table view
-        ObservableList<Variable> variableData = FXCollections.observableArrayList();
-        //Add employee to the ObservableList
-        variableData.add(variable);
-        //Set items to the employeeTable
-        variableTable.setItems(variableData);
+    private void populateVariables (ObservableList<Variable> variable) throws ClassNotFoundException {
+        variableTable.setItems(variable);
     }
 }

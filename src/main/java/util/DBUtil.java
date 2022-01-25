@@ -1,6 +1,9 @@
 package util;
 
 import com.sun.rowset.CachedRowSetImpl;
+
+import javax.sql.rowset.CachedRowSet;
+import javax.sql.rowset.RowSetProvider;
 import java.sql.*;
 
 public class DBUtil {
@@ -49,7 +52,7 @@ public class DBUtil {
         //Declare statement, resultSet and CachedResultSet as null
         Statement stmt = null;
         ResultSet resultSet = null;
-        CachedRowSetImpl crs = null;
+        CachedRowSet crs = null;
 
         try {
             //Connect to DB (Establish MySQL Connection)
@@ -65,7 +68,7 @@ public class DBUtil {
             //CachedRowSet Implementation
             //In order to prevent "java.sql.SQLRecoverableException: Closed Connection: next" error
             //We are using CachedRowSet
-            crs = new CachedRowSetImpl();
+            crs = RowSetProvider.newFactory().createCachedRowSet();
             crs.populate(resultSet);
         } catch (SQLException e) {
             System.out.println("Problem occurred at executeQuery operation : " + e);
