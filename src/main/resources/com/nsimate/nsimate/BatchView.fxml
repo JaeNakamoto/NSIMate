@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BatchViewController">
+    <center>
+        <TableView fx:id="batchTable" prefHeight="499.0" prefWidth="1190.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="batchIDColumn" prefWidth="75.0" text="Batch ID" />
+            <TableColumn fx:id="scanSetupIDColumn" prefWidth="111.33338928222656" text="Scan Setup ID" />
+            <TableColumn fx:id="probeIDColumn" prefWidth="75.0" text="Probe ID" />
+            <TableColumn fx:id="batchStartdateColumn" prefWidth="111.33338928222656" text="Batch Startdate" />
+            <TableColumn fx:id="batchStopdateColumn" prefWidth="111.33338928222656" text="Batch Stopdate" />
+            <TableColumn fx:id="batchStarttimeColumn" prefWidth="111.33338928222656" text="Batch Starttime" />
+            <TableColumn fx:id="batchStoptimeColumn" prefWidth="111.33338928222656" text="Batch Stoptime" />
+            <TableColumn fx:id="referenceOriginThetaColumn" prefWidth="142.0" text="Reference Origin Theta" />
+            <TableColumn fx:id="referenceOriginPhiColumn" prefWidth="142.0" text="Reference Origin Phi" />
+            <TableColumn fx:id="referenceLocationColumn" prefWidth="117.9998779296875" text="Reference Location" />
+            <TableColumn fx:id="autLocationXColumn" prefWidth="136.0" text="AUT Location X" />
+            <TableColumn fx:id="autLocationYColumn" prefWidth="142.0" text="AUT Location Y" />
+            <TableColumn fx:id="autLocationZColumn" prefWidth="142.0" text="AUT Location Z" />
+            <TableColumn fx:id="coordinateSystemColumn" prefWidth="142.0" text="Coordinate System" />
+            <TableColumn fx:id="groundplateColumn" prefWidth="111.33338928222656" text="Groundplate" />
+            <TableColumn fx:id="absorberColumn" prefWidth="75.0" text="Absorber" />
+            <TableColumn fx:id="separationRodsColumn" prefWidth="142.0" text="Separationrods" />
+            <TableColumn fx:id="mreColumn" prefWidth="75.0" text="MRE" />
+            <TableColumn fx:id="mechanicalAdapterColumn" prefWidth="111.33338928222656" text="Mechanical Adapter" />
+            <TableColumn fx:id="groundingOptionColumn" prefWidth="111.33338928222656" text="Grounding Option" />
+            <TableColumn fx:id="controlCableColumn" prefWidth="111.33338928222656" text="Control Cable" />
+            <TableColumn fx:id="nfffColumn" prefWidth="75.0" text="NF / FF" />
+            <TableColumn fx:id="breakoutboxColumn" prefWidth="75.0" text="Breakoutbox" />
+            <TableColumn fx:id="specialColumn" prefWidth="75.0" text="Special" />
+            </columns>
+            <BorderPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </BorderPane.margin>
+        </TableView>
+    </center>
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <AnchorPane prefHeight="200.0" prefWidth="1200.0">
+                    <children>
+                        <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scan Setup ID" />
+                        <TextField layoutX="112.0" layoutY="10.0" />
+                  <Text layoutX="14.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Probe ID" />
+                  <TextField layoutX="112.0" layoutY="35.0" />
+                  <Text layoutX="14.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Batch Startdate" />
+                  <TextField layoutX="112.0" layoutY="60.0" />
+                  <Text layoutX="14.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Batch Stopdate" />
+                  <TextField layoutX="112.0" layoutY="85.0" />
+                  <Text layoutX="14.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Batch Starttime" />
+                  <TextField layoutX="112.0" layoutY="110.0" />
+                  <Text layoutX="14.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Batch Stoptime" />
+                  <TextField layoutX="112.0" layoutY="135.0" />
+                  <Text layoutX="14.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ref Origin Theta" />
+                  <TextField layoutX="112.0" layoutY="160.0" />
+                  <Text layoutX="14.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ref Origin Phi" />
+                  <TextField layoutX="112.0" layoutY="185.0" />
+                        <Separator layoutX="715.0" layoutY="6.0" orientation="VERTICAL" prefHeight="200.0" />
+                        <Button layoutX="1102.0" layoutY="172.0" mnemonicParsing="false" text="Delete Batch" />
+                        <Button layoutX="988.0" layoutY="172.0" mnemonicParsing="false" text="Update Batch" />
+                        <Button layoutX="635.0" layoutY="172.0" mnemonicParsing="false" text="Add Batch" />
+                  <Text layoutX="282.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reference Location" />
+                  <TextField layoutX="394.0" layoutY="10.0" />
+                  <Text layoutX="282.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AUT Location X" />
+                  <TextField layoutX="394.0" layoutY="35.0" />
+                  <Text layoutX="282.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AUT Location Y" />
+                  <TextField layoutX="394.0" layoutY="60.0" />
+                  <Text layoutX="282.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AUT Location Z" />
+                  <TextField layoutX="394.0" layoutY="85.0" />
+                  <Text layoutX="282.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coordinate System" />
+                  <TextField layoutX="394.0" layoutY="110.0" />
+                  <Text layoutX="282.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Groundplate" />
+                  <TextField layoutX="394.0" layoutY="135.0" />
+                  <Text layoutX="282.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Absorber" />
+                  <TextField layoutX="394.0" layoutY="160.0" />
+                  <Text layoutX="282.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Separationrods" />
+                  <TextField layoutX="394.0" layoutY="185.0" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="45.0" prefWidth="1200.0">
+                    <children>
+                        <Button layoutY="11.0" mnemonicParsing="false" text="Refresh Table" AnchorPane.bottomAnchor="12.333333333333336" AnchorPane.leftAnchor="5.0" />
+                        <Separator layoutY="45.0" prefWidth="1200.0" />
+                        <Separator prefWidth="1200.0" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+    </top>
+</BorderPane>

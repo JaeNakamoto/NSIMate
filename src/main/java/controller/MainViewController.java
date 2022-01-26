@@ -55,8 +55,11 @@ public class MainViewController {
     //For MultiThreading
     private Executor exec;
 
+    //Initializing the controller class.
+    //This method is automatically called after the fxml file has been loaded.
     @FXML
     private void initialize() {
+        //For multithreading: Create executor that uses daemon threads:
         exec = Executors.newCachedThreadPool((runnable) -> {
             Thread t = new Thread (runnable);
             t.setDaemon(true);
@@ -87,22 +90,35 @@ public class MainViewController {
         stage.show();
     }
 
-    @FXML
-    private void refreshVariable(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+
+    //*******************************
+    //Overview Tab
+    //*******************************
+    @FXML private void onSelectBatch(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         try {
-            //Get all Employees information
+            BatchViewController.start(new Stage());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Refresh Scan TableView
+    @FXML
+    private void onRefreshVariableTable(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        try {
+            //Get all Variable information
             ObservableList<Variable> variableData = VariableDAO.searchVariables();
-            //Populate Employees on TableView
-            populateVariables(variableData);
+            //Populate Variable on TableView
+            populateVariable(variableData);
         } catch (SQLException | ClassNotFoundException e){
             System.out.println("Error occurred while getting employees information from DB.\n" + e);
             throw e;
         }
     }
 
-    //Populate Employee
+    //Populate Variable Table
     @FXML
-    private void populateVariables (ObservableList<Variable> variable) throws ClassNotFoundException {
+    private void populateVariable (ObservableList<Variable> variable) throws ClassNotFoundException {
         variableTable.setItems(variable);
     }
 }
