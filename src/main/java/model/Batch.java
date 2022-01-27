@@ -254,4 +254,70 @@ public class Batch {
     public FloatProperty mreProperty() {
         return mre;
     }
+
+    //mechanical_adapter
+    public String getMechanical_adapter() {
+        return mechanical_adapter.get();
+    }
+    public void setMechanical_adapter(String mechanical_adapter) {
+        this.mechanical_adapter.set(mechanical_adapter);
+    }
+    public StringProperty mechanical_adapterProperty() {
+        return mechanical_adapter;
+    }
+
+    //grounding_option
+    public String getGrounding_option() {
+        return grounding_option.get();
+    }
+    public void setGrounding_option(String grounding_option) {
+        this.grounding_option.set(grounding_option);
+    }
+    public StringProperty grounding_optionProperty() {
+        return grounding_option;
+    }
+
+    //control_cable
+    public String getControl_cable() {
+        return control_cable.get();
+    }
+    public void setControl_cable(String control_cable) {
+        this.control_cable.set(control_cable);
+    }
+    public StringProperty control_cableProperty() {
+        return control_cable;
+    }
+
+    //nf_ff
+    public String getNf_ff() {
+        return nf_ff.get();
+    }
+    public void setNf_ff(String nf_ff) {
+        this.nf_ff.set(nf_ff);
+    }
+    public StringProperty nf_ffProperty() {
+        return nf_ff;
+    }
+
+    //breakoutbox
+    public String getBreakoutbox() {
+        return breakoutbox.get();
+    }
+    public void setBreakoutbox(String breakoutbox) {
+        this.breakoutbox.set(breakoutbox);
+    }
+    public StringProperty breakoutboxProperty() {
+        return breakoutbox;
+    }
+
+    //special
+    public String getSpecial() {
+        return special.get();
+    }
+    public void setSpecial(String special) {
+        this.special.set(special);
+    }
+    public StringProperty specialProperty() {
+        return special;
+    }
 }
