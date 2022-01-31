@@ -10,8 +10,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import model.Variable;
-import model.VariableDAO;
+import model.Batch;
+import model.BatchDAO;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -22,49 +22,53 @@ public class BatchViewController {
     @FXML
     private TableView batchTable;
     @FXML
-    private TableColumn batchIDColumn;
+    private TableColumn<Batch, Integer> batchIDColumn;
     @FXML
-    private TableColumn probeIDColumn;
+    private TableColumn<Batch, Integer> scanSetupIDColumn;
     @FXML
-    private TableColumn batchStartdateColumn;
+    private TableColumn<Batch, Integer> probeIDColumn;
     @FXML
-    private TableColumn batchStopdateColumn;
+    private TableColumn<Batch, String> batchStartdateColumn;
     @FXML
-    private TableColumn batchStoptimeColumn;
+    private TableColumn<Batch, String> batchStopdateColumn;
     @FXML
-    private TableColumn referenceOriginThetaColumn;
+    private TableColumn<Batch, String> batchStarttimeColumn;
     @FXML
-    private TableColumn referenceOriginPhiColumn;
+    private TableColumn<Batch, String> batchStoptimeColumn;
     @FXML
-    private TableColumn referenceLocationColumn;
+    private TableColumn<Batch, Float> referenceOriginThetaColumn;
     @FXML
-    private TableColumn autLocationXColumn;
+    private TableColumn<Batch, Float> referenceOriginPhiColumn;
     @FXML
-    private TableColumn autLocationYColumn;
+    private TableColumn<Batch, String> referenceLocationColumn;
     @FXML
-    private TableColumn autLocationZColumn;
+    private TableColumn<Batch, Float> autLocationXColumn;
     @FXML
-    private TableColumn coordinateSystemColumn;
+    private TableColumn<Batch, Float> autLocationYColumn;
     @FXML
-    private TableColumn groundplateColumn;
+    private TableColumn<Batch, Float> autLocationZColumn;
     @FXML
-    private TableColumn absorberColumn;
+    private TableColumn<Batch, String> coordinateSystemColumn;
     @FXML
-    private TableColumn separationRodsColumn;
+    private TableColumn<Batch, String> groundplateColumn;
     @FXML
-    private TableColumn mreColumn;
+    private TableColumn<Batch, String> absorberColumn;
     @FXML
-    private TableColumn mechanicalAdapterColumn;
+    private TableColumn<Batch, String> separationRodsColumn;
     @FXML
-    private TableColumn groundingOptionColumn;
+    private TableColumn<Batch, Float> mreColumn;
     @FXML
-    private TableColumn controlCableColumn;
+    private TableColumn<Batch, String> mechanicalAdapterColumn;
     @FXML
-    private TableColumn nfffColumn;
+    private TableColumn<Batch, String> groundingOptionColumn;
     @FXML
-    private TableColumn breakoutboxColumn;
+    private TableColumn<Batch, String> controlCableColumn;
     @FXML
-    private TableColumn specialColumn;
+    private TableColumn<Batch, String> nfffColumn;
+    @FXML
+    private TableColumn<Batch, String> breakoutboxColumn;
+    @FXML
+    private TableColumn<Batch, String> specialColumn;
 
     //For MultiThreading
     private Executor exec;
@@ -79,9 +83,38 @@ public class BatchViewController {
             t.setDaemon(true);
             return t;
         });
+        batchIDColumn.setCellValueFactory(cellData -> cellData.getValue().batch_idProperty().asObject());
+        scanSetupIDColumn.setCellValueFactory(cellData -> cellData.getValue().scan_setup_idProperty().asObject());
+        probeIDColumn.setCellValueFactory(cellData -> cellData.getValue().probe_idProperty().asObject());
+        batchStartdateColumn.setCellValueFactory(cellData -> cellData.getValue().batch_stardateProperty());
+        batchStopdateColumn.setCellValueFactory(cellData -> cellData.getValue().batch_stopdateProperty());
+        batchStarttimeColumn.setCellValueFactory(cellData -> cellData.getValue().batch_starttimeProperty());
+        batchStoptimeColumn.setCellValueFactory(cellData -> cellData.getValue().batch_stoptimeProperty());
+        referenceOriginThetaColumn.setCellValueFactory(cellData -> cellData.getValue().reference_origin_thetaProperty().asObject());
+        referenceOriginPhiColumn.setCellValueFactory(cellData -> cellData.getValue().reference_origin_phiProperty().asObject());
+        referenceLocationColumn.setCellValueFactory(cellData -> cellData.getValue().reference_locationProperty());
+        autLocationXColumn.setCellValueFactory(cellData -> cellData.getValue().aut_location_xProperty().asObject());
+        autLocationYColumn.setCellValueFactory(cellData -> cellData.getValue().aut_location_yProperty().asObject());
+        autLocationZColumn.setCellValueFactory(cellData -> cellData.getValue().aut_location_zProperty().asObject());
+        coordinateSystemColumn.setCellValueFactory(cellData -> cellData.getValue().coordinate_systemProperty());
+        groundplateColumn.setCellValueFactory(cellData -> cellData.getValue().groundplateProperty());
+        absorberColumn.setCellValueFactory(cellData -> cellData.getValue().absorberProperty());
+        separationRodsColumn.setCellValueFactory(cellData -> cellData.getValue().separation_rodsProperty());
+        mreColumn.setCellValueFactory(cellData -> cellData.getValue().mreProperty().asObject());
+        mechanicalAdapterColumn.setCellValueFactory(cellData -> cellData.getValue().mechanical_adapterProperty());
+        groundingOptionColumn.setCellValueFactory(cellData -> cellData.getValue().grounding_optionProperty());
+        controlCableColumn.setCellValueFactory(cellData -> cellData.getValue().control_cableProperty());
+        nfffColumn.setCellValueFactory(cellData -> cellData.getValue().nf_ffProperty());
+        breakoutboxColumn.setCellValueFactory(cellData -> cellData.getValue().breakoutboxProperty());
+        specialColumn.setCellValueFactory(cellData -> cellData.getValue().specialProperty());
 
-        //batchIDColumn.setCellValueFactory(cellData -> cellData.batch_idProperty.variable_idProperty().asObject());
-
+        try {
+            onRefreshBatchTable(new ActionEvent());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void start(Stage stage) throws IOException {
@@ -94,10 +127,6 @@ public class BatchViewController {
         stage.show();
     }
 
-
-    //*******************************
-    //Overview Tab
-    //*******************************
     @FXML private void onSelectBatch(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         try {
             BatchViewController.start(new Stage());
@@ -106,24 +135,24 @@ public class BatchViewController {
         }
     }
 
-    //Refresh Scan TableView
+    //Refresh Batch TableView
     @FXML
-    private void onRefreshVariableTable(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+    private void onRefreshBatchTable(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         try {
-            //Get all Variable information
-            ObservableList<Variable> variableData = VariableDAO.searchVariables();
-            //Populate Variable on TableView
-            populateVariable(variableData);
+            //Get all Batch information
+            ObservableList<Batch> batchData = BatchDAO.searchBatches();
+            //Populate Batch on TableView
+            populateBatch(batchData);
         } catch (SQLException | ClassNotFoundException e){
-            System.out.println("Error occurred while getting employees information from DB.\n" + e);
+            System.out.println("Error occurred while getting batches information from DB.\n" + e);
             throw e;
         }
     }
 
     //Populate Variable Table
     @FXML
-    private void populateVariable (ObservableList<Variable> variable) throws ClassNotFoundException {
-        //variableTable.setItems(variable);
+    private void populateBatch (ObservableList<Batch> batch) throws ClassNotFoundException {
+        batchTable.setItems(batch);
     }
 
 }

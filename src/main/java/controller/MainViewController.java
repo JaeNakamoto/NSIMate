@@ -1,7 +1,6 @@
 package controller;
 
 import com.nsimate.nsimate.Main;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -111,7 +110,7 @@ public class MainViewController {
             //Populate Variable on TableView
             populateVariable(variableData);
         } catch (SQLException | ClassNotFoundException e){
-            System.out.println("Error occurred while getting employees information from DB.\n" + e);
+            System.out.println("Error occurred while getting variables information from DB.\n" + e);
             throw e;
         }
     }
