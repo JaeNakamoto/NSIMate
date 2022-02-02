@@ -201,7 +201,7 @@ public class Batch {
     }
 
     //coordinate_system
-    public String getCoordinate_systtem() {
+    public String getCoordinate_system() {
         return coordinate_system.get();
     }
     public void setCoordinate_system(String coordinate_system) {

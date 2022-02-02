@@ -1,6 +1,8 @@
 package controller;
 
 import com.nsimate.nsimate.Main;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Batch;
@@ -19,6 +22,9 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class BatchViewController {
+    @FXML
+    private TextField searchBatchField;
+
     @FXML
     private TableView batchTable;
     @FXML
@@ -115,6 +121,7 @@ public class BatchViewController {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+
     }
 
     public static void start(Stage stage) throws IOException {

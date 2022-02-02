@@ -28,11 +28,9 @@ public final class LoginSession {
     public int getUser_id() {
         return user_id.get();
     }
-
     public void setUser_id(int user_id) {
         this.user_id.set(user_id);
     }
-
     public IntegerProperty user_idProperty() {
         return user_id;
     }
@@ -41,11 +39,9 @@ public final class LoginSession {
     public String getFirstname() {
         return firstname.get();
     }
-
     public void setFirstname(String firstname) {
         this.firstname.set(firstname);
     }
-
     public StringProperty firstnameProperty() {
         return firstname;
     }
@@ -54,11 +50,9 @@ public final class LoginSession {
     public String getLastname() {
         return lastname.get();
     }
-
     public void setLastname(String lastname) {
         this.lastname.set(lastname);
     }
-
     public StringProperty lastnameProperty() {
         return lastname;
     }
@@ -67,11 +61,9 @@ public final class LoginSession {
     public String getUsername() {
         return username.get();
     }
-
     public void setUsername(String username) {
         this.username.set(username);
     }
-
     public StringProperty usernameProperty() {
         return username;
     }
@@ -80,11 +72,9 @@ public final class LoginSession {
     public String getPassword() {
         return password.get();
     }
-
     public void setPassword(String password) {
         this.password.set(password);
     }
-
     public StringProperty passwordProperty() {
         return password;
     }
@@ -93,11 +83,9 @@ public final class LoginSession {
     public String getUser_privileges() {
         return user_privileges.get();
     }
-
     public void setUser_privileges(String user_privileges) {
         this.user_privileges.set(user_privileges);
     }
-
     public StringProperty user_privilegesProperty() {
         return user_privileges;
     }
