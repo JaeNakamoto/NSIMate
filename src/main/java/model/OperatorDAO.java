@@ -11,7 +11,7 @@ public class OperatorDAO {
     //*******************************
     //SELECT an Operator
     //*******************************
-    public static Antenna searchOperator(int operator_id) throws SQLException, ClassNotFoundException {
+    public static Operator searchOperator(int operator_id) throws SQLException, ClassNotFoundException {
         //Declare a SELECT statement
         String selectStmt = "SELECT * FROM operator WHERE operator_id= " + operator_id;
 
@@ -72,7 +72,7 @@ public class OperatorDAO {
     }
 
     //Select * from operator operation
-    private static ObservableList<Operator getOperatorList(ResultSet rs) throws SQLException, ClassNotFoundException {
+    private static ObservableList<Operator> getOperatorList(ResultSet rs) throws SQLException, ClassNotFoundException {
         //Declare an observable List which consists of Operator objects
         ObservableList<Operator> operatorList = FXCollections.observableArrayList();
 
