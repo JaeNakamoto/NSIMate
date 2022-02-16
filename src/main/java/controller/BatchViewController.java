@@ -134,12 +134,9 @@ public class BatchViewController {
         stage.show();
     }
 
-    @FXML private void onSelectBatch(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        try {
-            BatchViewController.start(new Stage());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    @FXML
+    private void onSelectBatch(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+
     }
 
     //Refresh Batch TableView

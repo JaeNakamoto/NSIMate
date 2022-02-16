@@ -7,54 +7,54 @@ import javafx.beans.property.StringProperty;
 
 public final class LoginSession {
     //Declare Session Table Columns
-    private IntegerProperty user_id;
-    private StringProperty firstname;
-    private StringProperty lastname;
+    private IntegerProperty operator_id;
+    private StringProperty first_name;
+    private StringProperty last_name;
     private StringProperty username;
     private StringProperty password;
-    private StringProperty user_privileges;
+    private StringProperty user_privilege;
 
     //Constructor
     public LoginSession() {
-        this.user_id = new SimpleIntegerProperty();
-        this.firstname = new SimpleStringProperty();
-        this.lastname = new SimpleStringProperty();
+        this.operator_id = new SimpleIntegerProperty();
+        this.first_name = new SimpleStringProperty();
+        this.last_name = new SimpleStringProperty();
         this.username = new SimpleStringProperty();
         this.password = new SimpleStringProperty();
-        this.user_privileges = new SimpleStringProperty();
+        this.user_privilege = new SimpleStringProperty();
     }
 
     //user_id
-    public int getUser_id() {
-        return user_id.get();
+    public int getOperator_id() {
+        return operator_id.get();
     }
-    public void setUser_id(int user_id) {
-        this.user_id.set(user_id);
+    public void setOperator_id(int operator_id) {
+        this.operator_id.set(operator_id);
     }
-    public IntegerProperty user_idProperty() {
-        return user_id;
-    }
-
-    //firstname
-    public String getFirstname() {
-        return firstname.get();
-    }
-    public void setFirstname(String firstname) {
-        this.firstname.set(firstname);
-    }
-    public StringProperty firstnameProperty() {
-        return firstname;
+    public IntegerProperty operator_idProperty() {
+        return operator_id;
     }
 
-    //lastname
-    public String getLastname() {
-        return lastname.get();
+    //first_name
+    public String getFirst_name() {
+        return first_name.get();
     }
-    public void setLastname(String lastname) {
-        this.lastname.set(lastname);
+    public void setFirst_name(String first_name) {
+        this.first_name.set(first_name);
     }
-    public StringProperty lastnameProperty() {
-        return lastname;
+    public StringProperty first_nameProperty() {
+        return first_name;
+    }
+
+    //last_name
+    public String getLast_name() {
+        return last_name.get();
+    }
+    public void setLast_name(String last_name) {
+        this.last_name.set(last_name);
+    }
+    public StringProperty last_nameProperty() {
+        return last_name;
     }
 
     //username
@@ -80,13 +80,13 @@ public final class LoginSession {
     }
 
     //user_privileges
-    public String getUser_privileges() {
-        return user_privileges.get();
+    public String getUser_privilege() {
+        return user_privilege.get();
     }
-    public void setUser_privileges(String user_privileges) {
-        this.user_privileges.set(user_privileges);
+    public void setUser_privilege(String user_privilege) {
+        this.user_privilege.set(user_privilege);
     }
-    public StringProperty user_privilegesProperty() {
-        return user_privileges;
+    public StringProperty user_privilegeProperty() {
+        return user_privilege;
     }
 }

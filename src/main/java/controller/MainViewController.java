@@ -93,7 +93,8 @@ public class MainViewController {
     //*******************************
     //Overview Tab
     //*******************************
-    @FXML private void onSelectBatch(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+    @FXML
+    private void onSelectBatch(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         try {
             BatchViewController.start(new Stage());
         } catch (IOException e) {

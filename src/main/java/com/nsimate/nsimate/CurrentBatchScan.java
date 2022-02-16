@@ -21,9 +21,6 @@ public class CurrentBatchScan {
     public void setCurrentBatchID(int currentBatchID) {
         this.currentBatchID.set(currentBatchID);
     }
-    public IntegerProperty currentBatchIDProperty() {
-        return currentBatchID;
-    }
 
     //currentBatchID
     public int getCurrentScanID() {
@@ -32,7 +29,5 @@ public class CurrentBatchScan {
     public void setCurrentScanID(int currentScanID) {
         this.currentScanID.set(currentScanID);
     }
-    public IntegerProperty currentScanIDProperty() {
-        return currentScanID;
-    }
+
 }
