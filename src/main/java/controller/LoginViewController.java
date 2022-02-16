@@ -1,5 +1,6 @@
 package controller;
 
+import com.nsimate.nsimate.LoginSession;
 import com.nsimate.nsimate.Main;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,6 +12,8 @@ import javafx.stage.Stage;
 import util.DBUtil;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 public class LoginViewController {
     public TextField userNameField;
@@ -32,11 +35,11 @@ public class LoginViewController {
     }
 
     // Handles login action
-    public void onLoginButton() {
+    public void onLoginButton() throws SQLException, ClassNotFoundException {
         username = userNameField.getText();
         password = passwordField.getText();
 
-        if(DBUtil.dbConnect() != null) {
+        if (DBUtil.loginValidation(username, password)) {
             try {
                 Stage stage = (Stage) loginButton.getScene().getWindow();
                 stage.close();

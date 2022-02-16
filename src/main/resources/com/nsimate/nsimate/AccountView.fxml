@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
@@ -23,10 +22,9 @@
       <Text layoutX="14.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Firtst name" />
       <Text layoutX="14.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name" />
       <Text layoutX="14.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Privilege" />
-      <TextField layoutX="101.0" layoutY="14.0" />
-      <TextField layoutX="101.0" layoutY="46.0" />
-      <TextField layoutX="101.0" layoutY="78.0" />
-      <ComboBox layoutX="101.0" layoutY="110.0" prefWidth="150.0" />
+      <TextField fx:id="userNameField" layoutX="101.0" layoutY="14.0" />
+      <TextField fx:id="firstNameField" layoutX="101.0" layoutY="46.0" />
+      <TextField fx:id="lastNameField" layoutX="101.0" layoutY="78.0" />
       <Separator layoutX="1.0" layoutY="144.0" prefWidth="500.0" />
       <TitledPane collapsible="false" layoutX="6.0" layoutY="154.0" prefHeight="180.0" prefWidth="490.0" text="Reset Password">
          <content>
@@ -35,12 +33,14 @@
                   <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current password" />
                   <Text layoutX="14.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New password" />
                   <Text layoutX="14.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm password" />
-                  <PasswordField layoutX="124.0" layoutY="10.0" />
-                  <PasswordField layoutX="124.0" layoutY="77.0" />
-                  <PasswordField layoutX="124.0" layoutY="110.0" />
+                  <PasswordField fx:id="currentPasswordField" layoutX="124.0" layoutY="10.0" />
+                  <PasswordField fx:id="newPasswordField" layoutX="124.0" layoutY="77.0" />
+                  <PasswordField fx:id="confirmPasswordField" layoutX="124.0" layoutY="110.0" />
+                  <Text fx:id="incorrectPasswordText" fill="RED" layoutX="292.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Incorrect Password" />
                </children>
             </AnchorPane>
          </content>
       </TitledPane>
+      <Text fx:id="userPrivilegeText" layoutX="101.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;privilege&gt;" />
    </children>
 </AnchorPane>

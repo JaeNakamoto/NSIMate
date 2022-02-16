@@ -118,4 +118,29 @@ public class DBUtil {
         }
     }
 
+    //*************************************
+    //Login Validation
+    //*************************************
+    public static boolean loginValidation(String username, String password) throws SQLException, ClassNotFoundException {
+        final String selectSQL = "SELECT * FROM operator WHERE username = ? and password = ?";
+
+        dbConnect();
+        try (PreparedStatement preparedStatement = conn.prepareStatement(selectSQL)) {
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                System.out.println("Login Successful");
+                return true;
+            }
+        } catch (SQLException e) {
+            System.out.println("An error occured while executing loginValidation operation" + e);
+            throw e;
+        } finally {
+            dbDisconnect();
+        }
+        System.out.println("Login Unsuccessful");
+        return false;
+    }
 }

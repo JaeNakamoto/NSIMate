@@ -50,7 +50,7 @@ public class OperatorDAO {
     //*******************************
     //SELECT Operators
     //*******************************
-    public static ObservableList<Operator> searchOperators () throws SQLException, ClassNotFoundException {
+    public static ObservableList<Operator> searchOperators() throws SQLException, ClassNotFoundException {
         //Declare a SELECT statement
         String selectStmt = "SELECT * FROM operator";
 

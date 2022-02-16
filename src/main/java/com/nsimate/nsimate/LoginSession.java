@@ -24,6 +24,8 @@ public final class LoginSession {
         this.user_privilege = new SimpleStringProperty();
     }
 
+
+
     //user_id
     public int getOperator_id() {
         return operator_id.get();
